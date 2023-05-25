@@ -1,0 +1,28 @@
+{
+  "Users": [
+    {
+      "Name": "휴먼",
+      "Username": "human",
+      "Posts": 100,
+      "Follow": 123456,
+      "Following": 456
+    }
+  ],
+  "OtherUsers": [
+    {
+      "Name": "hello_123",
+      "Follower": "aaa111",
+      "profileImage": ["img/friend_1.jpg"]
+    },
+    {
+      "Name": "hi._.hi",
+      "Follower": "bbb222",
+      "profileImage": ["img/friend_2.jpg"]
+    },
+    {
+      "Name": ":)ImUser",
+      "Follower": "ccc333",
+      "profileImage": ["img/friend_3.jpg"]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "user": "aaa111",
+      "profileImage": "img/user/user_1.jpg",
+      "postDate": "2023.05.18",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/1.jpg", "img/2.jpg", "img/3.jpg"],
+      "likesTotal": 45,
+      "postContent": "I was walking down the street when I saw a strange sight: a man dressed in a clown costume, riding a unicycle and juggling three balls. He had a big smile on his face and he waved at me as he passed by. I wondered what he was doing and where he was going. Was he part of a circus or a street performer? Did he have a special occasion or was he just having fun? I felt curious and amused by his presence. He brightened up my day with his colorful and cheerful appearance.",
+      "reviews": [
+        {
+          "reviewer": "FluffyPanda 🐼",
+          "reviewContent": "The sky is blue today.",
+          "state": false
+        },
+        {
+          "reviewer": "CozyCat 🐱",
+          "reviewContent": "She is so cute.",
+          "state": false
+        },
+        {
+          "reviewer": "LemonSqueezy 🍋",
+          "reviewContent": "He ran fast and won the race.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user": "bbb222",
+      "profileImage": "img/user/user_2.jpg",
+
+      "postDate": "2023.05.16",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/4.jpg", "img/5.jpg", "img/6.jpg"],
+      "likesTotal": 150,
+      "postContent": "I had a dream last night that I was flying in the sky. I felt free and happy as I soared above the clouds. I saw beautiful landscapes and amazing creatures. I felt like I could go anywhere and do anything. It was the most wonderful experience of my life. I woke up feeling refreshed and inspired. I wished I could fly again in my next dream.",
+      "reviews": [
+        {
+          "reviewer": "CosmicDreamer 🌠",
+          "reviewContent": "They danced all night long.",
+          "state": false
+        },
+        {
+          "reviewer": "CrazyCookie 🍪",
+          "reviewContent": "You are my best friend.",
+          "state": false
+        },
+        {
+          "reviewer": "SunnyBunny 🐰",
+          "reviewContent": "She likes chocolate and coffee.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "user": "ccc333",
+      "profileImage": "img/user/user_3.jpg",
+
+      "postDate": "2023.05.14",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/7.jpg", "img/8.jpg"],
+      "likesTotal": 150,
+      "postContent": "I had a dream last night that I was flying in the sky. I felt free and happy as I soared above the clouds. I saw beautiful landscapes and amazing creatures. I felt like I could go anywhere and do anything. It was the most wonderful experience of my life. I woke up feeling refreshed and inspired. I wished I could fly again in my next dream.",
+      "reviews": [
+        {
+          "reviewer": "PinkFlamingo 🦩",
+          "reviewContent": "He plays guitar and sings.",
+          "state": false
+        },
+        {
+          "reviewer": "HappyHippo 🦛",
+          "reviewContent": "They traveled around the world.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "user": "ddd444",
+      "profileImage": "img/user/user_4.jpg",
+
+      "postDate": "2023.05.16",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/9.jpg", "img/10.jpg"],
+      "likesTotal": 150,
+      "postContent": "I had a dream last night that I was flying in the sky. I felt free and happy as I soared above the clouds. I saw beautiful landscapes and amazing creatures. I felt like I could go anywhere and do anything. It was the most wonderful experience of my life. I woke up feeling refreshed and inspired. I wished I could fly again in my next dream.",
+      "reviews": [
+        {
+          "reviewer": "GlitterSpark ✨",
+          "reviewContent": "You have a beautiful voice.",
+          "state": false
+        },
+        {
+          "reviewer": "CherryPie 🍒",
+          "reviewContent": "She is smart and kind.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "user": "aaa111",
+      "profileImage": "img/user/user_5.jpg",
+
+      "postDate": "2023.05.18",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/1.jpg", "img/2.jpg", "img/3.jpg"],
+      "likesTotal": 45,
+      "postContent": "I was walking down the street when I saw a strange sight: a man dressed in a clown costume, riding a unicycle and juggling three balls. He had a big smile on his face and he waved at me as he passed by. I wondered what he was doing and where he was going. Was he part of a circus or a street performer? Did he have a special occasion or was he just having fun? I felt curious and amused by his presence. He brightened up my day with his colorful and cheerful appearance.",
+      "reviews": [
+        {
+          "reviewer": "SnowyOwl 🦉",
+          "reviewContent": "The sky is blue today.",
+          "state": false
+        },
+        {
+          "reviewer": "PeachyKeen 🍑",
+          "reviewContent": "The sky is blue today.",
+          "state": false
+        },
+        {
+          "reviewer": "LuckyStar 🌟",
+          "reviewContent": "He ran fast and won the race.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "user": "bbb222",
+      "profileImage": "img/user/user_6.jpg",
+
+      "postDate": "2023.05.16",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/4.jpg", "img/5.jpg", "img/6.jpg"],
+      "likesTotal": 150,
+      "postContent": "I was walking down the street when I saw a strange sight: a man dressed in a clown costume, riding a unicycle and juggling three balls. He had a big smile on his face and he waved at me as he passed by. I wondered what he was doing and where he was going. Was he part of a circus or a street performer? Did he have a special occasion or was he just having fun? I felt curious and amused by his presence. He brightened up my day with his colorful and cheerful appearance.",
+      "reviews": [
+        {
+          "reviewer": "SweetCupcake 🧁",
+          "reviewContent": "They danced all night long.",
+          "state": false
+        },
+        {
+          "reviewer": "FuzzyBear 🐻",
+          "reviewContent": "You are my best friend.",
+          "state": false
+        },
+        {
+          "reviewer": "SparkleRainbow 🌈",
+          "reviewContent": "She likes chocolate and coffee.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "user": "ccc333",
+      "profileImage": "img/user/user_7.jpg",
+
+      "postDate": "2023.05.14",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/7.jpg", "img/8.jpg"],
+      "likesTotal": 150,
+      "postContent": "I was walking down the street when I saw a strange sight: a man dressed in a clown costume, riding a unicycle and juggling three balls. He had a big smile on his face and he waved at me as he passed by. I wondered what he was doing and where he was going. Was he part of a circus or a street performer? Did he have a special occasion or was he just having fun? I felt curious and amused by his presence. He brightened up my day with his colorful and cheerful appearance.",
+      "reviews": [
+        {
+          "reviewer": "BubblyBee 🐝",
+          "reviewContent": "He plays guitar and sings.",
+          "state": false
+        },
+        {
+          "reviewer": "RainbowUnicorn 🦄",
+          "reviewContent": "They traveled around the world.",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "user": "ddd444",
+      "profileImage": "img/user/user_8.jpg",
+
+      "postDate": "2023.05.16",
+      "postLocation": "Seoul, Korea",
+      "postImage": ["img/9.jpg", "img/10.jpg"],
+      "likesTotal": 150,
+      "postContent": "I was walking down the street when I saw a strange sight: a man dressed in a clown costume, riding a unicycle and juggling three balls. He had a big smile on his face and he waved at me as he passed by. I wondered what he was doing and where he was going. Was he part of a circus or a street performer? Did he have a special occasion or was he just having fun? I felt curious and amused by his presence. He brightened up my day with his colorful and cheerful appearance.",
+      "reviews": [
+        {
+          "reviewer": "FunkyMonkey 🐵",
+          "reviewContent": "You have a beautiful voice.",
+          "state": false
+        },
+        {
+          "reviewer": "PumpkinSpice 🎃",
+          "reviewContent": "She is smart and kind.",
+          "state": false
+        }
+      ]
+    }
+  ]
+}
