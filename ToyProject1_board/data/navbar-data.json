@@ -1,0 +1,57 @@
+{
+	"NavMenus": [
+		{
+			"id": 0,
+			"name": "SKINCARE",
+			"menulist": [
+				"All skincare",
+				"Cleansers",
+				"Balms",
+				"Treatments",
+				"Sunscreen",
+				"Moisturizers",
+				"Save with sets"
+			],
+			"imageURL": "../../img/menu-dropdown-img0.png",
+			"imageDescription": "Two ways to cleanse"
+		},
+		{
+			"id": 1,
+			"name": "MAKEUP",
+			"menulist": [
+				"All makeup",
+				"Complexion",
+				"Brow",
+				"Eye",
+				"Cheek",
+				"Lip",
+				"Tools",
+				"Makeup removers",
+				"Save with sets"
+			],
+			"imageURL": "../../img/menu-dropdown-img1.jpg",
+			"imageDescription": "The Aimee Song Edit"
+		},
+		{
+			"id": 2,
+			"name": "BODY",
+			"menulist": ["All body", "Save with sets"],
+			"imageURL": "../../img/menu-dropdown-img2.jpg",
+			"imageDescription": "Love Your Shower"
+		},
+		{
+			"id": 3,
+			"name": "FRAGRANCE",
+			"menulist": ["All fragrance"],
+			"imageURL": "../../img/menu-dropdown-img3.jpg",
+			"imageDescription": "The World of Glossier You"
+		},
+		{
+			"id": 4,
+			"name": "SETS",
+			"menulist": ["All sets", "Makeup sets", "Skincare sets", "Body sets"],
+			"imageURL": "../../img/menu-dropdown-img4.jpg",
+			"imageDescription": "More You on the Go"
+		}
+	]
+}
