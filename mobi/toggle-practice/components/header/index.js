@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 const Header = () => {
   return (
     <S.Container>
-      <div>🫠THIS IS AN ADMIN PAGE🫠</div>
+      <div>🫠THIS IS AN ANDMIN PAGE🫠</div>
     </S.Container>
   );
 };
