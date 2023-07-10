@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InputBox = ({ name, register, errors }) => {
+const InputBox = ({ name, register, errors, handleChange, value }) => {
   return (
     <div>
       <label htmlFor={name}>{name.toUpperCase()}</label>
@@ -9,6 +9,8 @@ const InputBox = ({ name, register, errors }) => {
         placeholder={name}
         {...register(name)}
         errors={errors[name]}
+        onChange={handleChange}
+        value={value}
       />
       {errors[name] && <ERROR role="alert">{errors[name].message}</ERROR>}
     </div>

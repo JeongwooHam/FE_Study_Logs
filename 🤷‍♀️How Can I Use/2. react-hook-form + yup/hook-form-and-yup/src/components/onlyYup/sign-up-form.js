@@ -9,23 +9,58 @@ const SignUpForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    getValues,
+    trigger,
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => console.log(data);
+
+  const handleChangeVal = (e) => {
+    const { name, value } = e.target;
+    setValue(name, value);
+    trigger(name);
+  };
 
   return (
     <S.Container>
       <S.Title>SIGN UP</S.Title>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputBox name={"email"} register={register} errors={errors} />
-        <InputBox name={"password"} register={register} errors={errors} />
+        <InputBox
+          name={"email"}
+          register={register}
+          errors={errors}
+          handleChange={handleChangeVal}
+          value={getValues("email")}
+        />
+        <InputBox
+          name={"password"}
+          register={register}
+          errors={errors}
+          handleChange={handleChangeVal}
+          value={getValues("password")}
+        />
         <InputBox
           name={"passwordConfirm"}
           register={register}
           errors={errors}
+          handleChange={handleChangeVal}
+          value={getValues("passwordConfirm")}
         />
-        <InputBox name={"name"} register={register} errors={errors} />
-        <InputBox name={"age"} register={register} errors={errors} />
+        <InputBox
+          name={"name"}
+          register={register}
+          errors={errors}
+          handleChange={handleChangeVal}
+          value={getValues("name")}
+        />
+        <InputBox
+          name={"age"}
+          register={register}
+          errors={errors}
+          handleChange={handleChangeVal}
+          value={getValues("age")}
+        />
 
         <div>
           <S.Button>SUBMIT</S.Button>
