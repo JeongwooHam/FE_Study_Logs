@@ -4,7 +4,7 @@ import styled from "styled-components";
 import schema from "../../consts/schema";
 import InputBox from "./inputBox";
 
-const SignUpForm = () => {
+const SignUpFormWithController = () => {
   const {
     register,
     handleSubmit,
@@ -14,8 +14,8 @@ const SignUpForm = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <S.Container>
-      <S.Title>SIGN UP</S.Title>
+    <Container>
+      <Title>SIGN UP</Title>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputBox name={"email"} register={register} errors={errors} />
         <InputBox name={"password"} register={register} errors={errors} />
@@ -28,14 +28,14 @@ const SignUpForm = () => {
         <InputBox name={"age"} register={register} errors={errors} />
 
         <div>
-          <S.Button>SUBMIT</S.Button>
+          <Button>SUBMIT</Button>
         </div>
       </form>
-    </S.Container>
+    </Container>
   );
 };
 
-export default SignUpForm;
+export default SignUpFormWithController;
 
 const Container = styled.div`
   display: flex;
@@ -60,5 +60,3 @@ const Button = styled.button`
   height: 50px;
   margin-left: 100px;
 `;
-
-const S = { Container, Title, Button };
