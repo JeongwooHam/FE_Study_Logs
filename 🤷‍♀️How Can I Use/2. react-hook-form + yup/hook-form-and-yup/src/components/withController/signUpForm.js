@@ -1,37 +1,53 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import styled from "styled-components";
-import schema from "../../consts/schema";
 import InputBox from "./inputBox";
+import * as SCHEMA from "../../consts/schema";
+import * as yup from "yup";
 
 const SignUpFormWithController = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const { email, password, passwordConfirm, phoneNum, age } = SCHEMA;
+  const schema = yup
+    .object()
+    .shape({ email, password, passwordConfirm, phoneNum, age });
 
-  const onSubmit = (data) => console.log(data);
+  const { handleSubmit, control, setValue } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    alert(`${data.email}님 환영합니다!`);
+  };
 
   return (
-    <Container>
-      <Title>SIGN UP</Title>
+    <S.Container>
+      <S.Title>SIGN UP</S.Title>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputBox name={"email"} register={register} errors={errors} />
-        <InputBox name={"password"} register={register} errors={errors} />
+        <InputBox name={"email"} label="이메일" control={control} />
+        <InputBox
+          name={"password"}
+          label="비밀번호"
+          control={control}
+          type="password"
+        />
         <InputBox
           name={"passwordConfirm"}
-          register={register}
-          errors={errors}
+          label="비밀번호 확인"
+          control={control}
+          type="password"
         />
-        <InputBox name={"name"} register={register} errors={errors} />
-        <InputBox name={"age"} register={register} errors={errors} />
-
+        <InputBox
+          name={"phoneNum"}
+          label="연락처"
+          control={control}
+          setValue={setValue}
+        />
+        <InputBox name={"age"} label="나이" control={control} />
         <div>
-          <Button>SUBMIT</Button>
+          <S.Button>SUBMIT</S.Button>
         </div>
       </form>
-    </Container>
+    </S.Container>
   );
 };
 
@@ -45,6 +61,7 @@ const Container = styled.div`
   form {
     margin-top: 20px;
   }
+  font-size: 14px;
 `;
 
 const Title = styled.div`
@@ -53,10 +70,12 @@ const Title = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: "black";
+  background-color: black;
   color: white;
   border: none;
   width: 100px;
   height: 50px;
   margin-left: 100px;
 `;
+
+const S = { Container, Title, Button };

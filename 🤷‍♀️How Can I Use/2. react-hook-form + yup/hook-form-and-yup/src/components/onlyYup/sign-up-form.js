@@ -1,10 +1,16 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import styled from "styled-components";
-import schema from "../../consts/schema";
 import InputBox from "./inputBox";
+import * as SCHEMA from "../../consts/schema";
+import * as yup from "yup";
 
 const SignUpForm = () => {
+  const { email, password, passwordConfirm, phoneNum, age } = SCHEMA;
+  const schema = yup
+    .object()
+    .shape({ email, password, passwordConfirm, phoneNum, age });
+
   const {
     register,
     handleSubmit,

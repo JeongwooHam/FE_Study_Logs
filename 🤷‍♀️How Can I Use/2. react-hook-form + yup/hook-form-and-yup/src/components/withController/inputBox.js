@@ -1,35 +1,53 @@
+import { Controller } from "react-hook-form";
 import styled from "styled-components";
+import { replacePhone } from "../../utils/replacePhone";
 
-const InputBox = ({ name, register, errors }) => {
+const InputBox = ({ name, label, control, setValue, ...rest }) => {
   return (
     <div>
-      <label htmlFor={name}>{name.toUpperCase()}</label>
-      <Container
+      <Controller
         name={name}
-        placeholder={name}
-        {...register(name)}
-        errors={errors[name]}
+        control={control}
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <div>
+            <S.Label htmlFor={name}>{label}</S.Label>
+            <S.Input
+              name={name}
+              placeholder={name}
+              onChange={onChange}
+              value={name !== "phoneNum" ? value : replacePhone(value)}
+              {...rest}
+            />
+            {error && <S.ERROR role="alert">{error.message}</S.ERROR>}
+          </div>
+        )}
       />
-      {errors[name] && <ERROR role="alert">{errors[name].message}</ERROR>}
     </div>
   );
 };
 
 export default InputBox;
 
-const Container = styled.input`
+const Label = styled.label`
+  color: darkcyan;
+`;
+
+const Input = styled.input`
   display: block;
-  margin: 10px 0;
+  margin-bottom: 30px;
   width: 300px;
   height: 50px;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   &:focus {
     outline: none;
+    border-bottom: 1px solid black;
   }
 `;
 
 const ERROR = styled.div`
   color: salmon;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 `;
+
+const S = { Label, Input, ERROR };

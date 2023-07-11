@@ -4,7 +4,7 @@ const InputBox = ({ name, register, errors, handleChange, value }) => {
   return (
     <div>
       <label htmlFor={name}>{name.toUpperCase()}</label>
-      <Container
+      <S.Input
         name={name}
         placeholder={name}
         {...register(name)}
@@ -12,14 +12,14 @@ const InputBox = ({ name, register, errors, handleChange, value }) => {
         onChange={handleChange}
         value={value}
       />
-      {errors[name] && <ERROR role="alert">{errors[name].message}</ERROR>}
+      {errors[name] && <S.ERROR role="alert">{errors[name].message}</S.ERROR>}
     </div>
   );
 };
 
 export default InputBox;
 
-const Container = styled.input`
+const Input = styled.input`
   display: block;
   margin: 10px 0;
   width: 300px;
@@ -35,3 +35,8 @@ const ERROR = styled.div`
   color: salmon;
   margin-bottom: 20px;
 `;
+
+const S = {
+  Input,
+  ERROR,
+};
