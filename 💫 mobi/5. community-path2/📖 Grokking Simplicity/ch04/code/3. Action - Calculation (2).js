@@ -5,7 +5,7 @@
 function add_item_to_cart(name, price) {
   shopping_cart.push({
     name: name,
-    price: price
+    price: price,
   });
 
   calc_cart_total();
@@ -21,7 +21,7 @@ function add_item_to_cart(name, price) {
 function add_item(name, price) {
   shopping_cart.push({
     name: name,
-    price: price
+    price: price,
   });
 }
 
@@ -37,7 +37,7 @@ function add_item_to_cart(name, price) {
 function add_item(cart, name, price) {
   cart.push({
     name: name,
-    price: price
+    price: price,
   });
 }
 
@@ -51,10 +51,10 @@ function add_item_to_cart(name, price) {
 }
 
 function add_item(cart, name, price) {
-  var new_cart = cart.slice();
+  let new_cart = cart.slice();
   new_cart.push({
     name: name,
-    price: price
+    price: price,
   });
   return new_cart;
 }

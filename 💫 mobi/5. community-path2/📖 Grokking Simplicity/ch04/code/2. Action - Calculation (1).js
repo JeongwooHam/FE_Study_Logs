@@ -4,8 +4,8 @@
 
 function calc_cart_total() {
   shopping_cart_total = 0;
-  for(var i = 0; i < shopping_cart.length; i++) {
-    var item = shopping_cart[i];
+  for (let i = 0; i < shopping_cart.length; i++) {
+    let item = shopping_cart[i];
     shopping_cart_total += item.price;
   }
 
@@ -25,8 +25,8 @@ function calc_cart_total() {
 
 function calc_total() {
   shopping_cart_total = 0;
-  for(var i = 0; i < shopping_cart.length; i++) {
-    var item = shopping_cart[i];
+  for (let i = 0; i < shopping_cart.length; i++) {
+    let item = shopping_cart[i];
     shopping_cart_total += item.price;
   }
 }
@@ -43,9 +43,9 @@ function calc_cart_total() {
 }
 
 function calc_total() {
-  var total = 0;
-  for(var i = 0; i < shopping_cart.length; i++) {
-    var item = shopping_cart[i];
+  let total = 0;
+  for (let i = 0; i < shopping_cart.length; i++) {
+    let item = shopping_cart[i];
     total += item.price;
   }
   return total;
@@ -63,11 +63,10 @@ function calc_cart_total() {
 }
 
 function calc_total(cart) {
-  var total = 0;
-  for(var i = 0; i < cart.length; i++) {
-    var item = cart[i];
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i];
     total += item.price;
   }
   return total;
 }
-
