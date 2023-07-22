@@ -1,4 +1,4 @@
-# REACT_STUDY_LOGS
+# FE_STUDY_LOGS
 
 ## Toy Projects
 
