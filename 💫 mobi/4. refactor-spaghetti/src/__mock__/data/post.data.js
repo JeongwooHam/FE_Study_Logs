@@ -6,7 +6,6 @@ const randomId = {
   },
 };
 
-// id, title, content 부분은 반복되므로 합칠 수 있을듯!
 export const definePostList = (count) =>
   Array(count)
     .fill()

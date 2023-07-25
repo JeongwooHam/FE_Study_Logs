@@ -11,6 +11,10 @@ button {
 td {
   border-bottom: 1px solid lightgray;
   padding: 10px 0;
+  cursor: pointer;
+  &:hover {
+    background: lightgray;
+  }
 }
 caption {
   font-size: 2em;
