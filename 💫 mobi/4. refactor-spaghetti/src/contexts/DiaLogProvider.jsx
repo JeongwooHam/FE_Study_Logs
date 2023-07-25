@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 export const DialLogState = {
   ALERT: "ALERT",
@@ -18,16 +18,12 @@ const initialState = {
 // confirm에서 action.payload: confirm/cancle
 const DiaLogReducer = (state, action) => {
   switch (action.type) {
-    case "ALERT":
-      return { ...state, ...action.payload };
-    case "CONFIRM":
-      if (action.payload.type === "confirm") {
-      } else if (action.payload.type === "cancle") {
-      } else return state;
-    case "CONFIRMAGAIN":
-      if (action.payload.type === "confirm") {
-      } else if (action.payload.type === "cancle") {
-      } else return state;
+    // case DialLogState.ALERT:
+    //   return { ...state, ...action.payload };
+    // case DialLogState.CONFIRM:
+    //   return { ...state, ...action.payload };
+    // case DialLogState.CONFIRMAGAIN:
+    //   return { ...state, ...action.payload };
     default:
       return state;
   }
@@ -36,10 +32,21 @@ const DiaLogReducer = (state, action) => {
 export const useDiaLogStore = () => useContext(DiaLogContext);
 
 const DiaLogProvider = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [state, dispatch] = useReducer(DiaLogReducer, initialState);
 
+  const OpenDialog = () => {
+    setIsOpen(true);
+  };
+
+  const CloseDialog = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <DiaLogContext.Provider value={{ state, dispatch }}>
+    <DiaLogContext.Provider
+      value={{ state, dispatch, isOpen, OpenDialog, CloseDialog }}
+    >
       {children}
     </DiaLogContext.Provider>
   );

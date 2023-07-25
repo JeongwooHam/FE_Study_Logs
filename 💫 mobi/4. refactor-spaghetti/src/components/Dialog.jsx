@@ -1,34 +1,42 @@
-import { styled } from "styled-components";
-import { DialLogState } from "../contexts/DialogProvider";
-import React from "react";
+import styled from "styled-components";
+import { DialLogState, useDiaLogStore } from "../contexts/DialogProvider";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-// forwardRef로 컴포넌트가 ref를 전달받을 수 있게 함
-// 부모 컴포넌트에서 ref를 사용하여 Dialog 컴포넌트에 접근 가능
-const Dialog = React.forwardRef(
-  // onConfirm: 확인 버튼 클릭 시 호출될 콜백 함수
-  // onCancle: 취소 버튼 클릭 시 호출될 콜백 함수 (type이 CONFIRM인 경우에만 사용)
-  // onClose: x 버튼 클릭 시 호출될 콜백 함수
-  // position: 다이얼로그의 위치를 결정하는 css 속성값
+const Dialog = () => {
+  const { state, isOpen, CloseDialog } = useDiaLogStore();
+  const { type, text, position } = state;
 
-  // onConfirm, onCancle 부분은 DialogProvider에서 useReducer을 사용하여 구현할 수 있지 않을까?
-  ({ type, text, onConfirm, onCancel, onClose, position }, ref) => {
-    return (
-      <S.Wrapper ref={ref} $position={position}>
-        <S.CloseButton onClick={onClose}>x</S.CloseButton>
-        {text}
-        <S.Button onClick={onConfirm}>확인</S.Button>
-        {type === DialLogState.CONFIRM && (
-          <S.Button onClick={onCancel}>취소</S.Button>
-        )}
-      </S.Wrapper>
-    );
-  }
-);
+  const navigate = useNavigate();
+
+  // const handleConfirm = () => {
+  //   if (type !== DialLogState.ALERT) {
+  //     navigate(url);
+  //   }
+  //   CloseDialog();
+  // };
+
+  useEffect(() => {
+    console.log("Dialog isOpen (inside useEffect): ", isOpen);
+  }, [isOpen]);
+
+  return isOpen ? (
+    <S.Wrapper $position={position}>
+      <S.CloseButton onClick={() => CloseDialog()}>x</S.CloseButton>
+      {text}
+      <S.Button>확인</S.Button>
+      {type !== DialLogState.ALERT && (
+        <S.Button onClick={() => CloseDialog()}>취소</S.Button>
+      )}
+    </S.Wrapper>
+  ) : null;
+};
 // 개발자 도구에서 컴포넌트의 이름을 확인할 때 사용됨
-Dialog.displayName = "dialog";
+// Dialog.displayName = "dialog";
 export default Dialog;
 
 const Wrapper = styled.dialog`
+  display: block;
   width: 400px;
   position: absolute;
   left: ${({ $position }) => $position.x}%;
