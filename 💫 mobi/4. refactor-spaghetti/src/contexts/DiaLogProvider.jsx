@@ -1,60 +1,46 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import Dialog from "../components/Dialog";
+import { createContext, useContext, useReducer } from "react";
 
 export const DialLogState = {
   ALERT: "ALERT",
   CONFIRM: "CONFIRM",
+  CONFIRMAGAIN: "CONFIRMAGAIN",
 };
 
 const DiaLogContext = createContext();
 
+const initialState = {
+  type: "",
+  text: "",
+  position: { x: 50, y: 10 },
+};
+
+// case: alert, confirm
+// confirm에서 action.payload: confirm/cancle
+const DiaLogReducer = (state, action) => {
+  switch (action.type) {
+    case "ALERT":
+      return { ...state, ...action.payload };
+    case "CONFIRM":
+      if (action.payload.type === "confirm") {
+      } else if (action.payload.type === "cancle") {
+      } else return state;
+    case "CONFIRMAGAIN":
+      if (action.payload.type === "confirm") {
+      } else if (action.payload.type === "cancle") {
+      } else return state;
+    default:
+      return state;
+  }
+};
+
 export const useDiaLogStore = () => useContext(DiaLogContext);
+
 const DiaLogProvider = ({ children }) => {
-  const diaLogRef = useRef();
-  const [diaLogAttribute, setDiaLogAttribute] = useState({
-    type: DialLogState.ALERT,
-    text: "",
-    isOpen: false,
-    onConfirm: () => {},
-    onCancel: () => {},
-    position: {
-      x: 50,
-      y: 10,
-    },
-  });
-
-  // dialog를 열거나 닫기 위한 함수
-  useEffect(() => {
-    if (diaLogAttribute.isOpen) return diaLogRef.current.showModal();
-    diaLogRef.current.close();
-  }, [diaLogAttribute.isOpen]);
-
-  // dialog 속성들의 이전 상태를 유지하면서 새로운 값 설정
-  const setKeepPrevDialogAttribute = async (args) => {
-    setDiaLogAttribute((prev) => ({
-      ...prev,
-      ...args,
-    }));
-  };
-
-  // dialog를 닫기 위한 함수
-  const onCloseDiaLog = () => {
-    setDiaLogAttribute((prev) => ({
-      ...prev,
-      isOpen: false,
-    }));
-  };
+  const [state, dispatch] = useReducer(DiaLogReducer, initialState);
 
   return (
-    <DiaLogContext.Provider
-      value={[diaLogAttribute, setKeepPrevDialogAttribute]}
-    >
+    <DiaLogContext.Provider value={{ state, dispatch }}>
       {children}
-      <Dialog
-        {...{ ...diaLogAttribute }}
-        ref={diaLogRef}
-        onClose={onCloseDiaLog}
-      />
     </DiaLogContext.Provider>
   );
 };

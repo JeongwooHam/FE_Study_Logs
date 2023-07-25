@@ -6,7 +6,7 @@ import { WeatherApi } from "../apis/weather";
 const HomePage = () => {
   const [isBackGroundBlur, setIsBackGroundBlur] = useState(true);
   const [weather, setWeather] = useState();
-  const [, setDiaLogAttribute] = useDiaLogStore();
+  const { dispatch } = useDiaLogStore();
 
   // axiosInstance 생성..?
   const fetchWeather = async () => {
@@ -22,9 +22,7 @@ const HomePage = () => {
   useEffect(() => {
     fetchWeather();
     const userName = localStorage.getItem("userName");
-    if (!userName) {
-      return setIsBackGroundBlur(true);
-    } else setIsBackGroundBlur(false);
+    return userName ? setIsBackGroundBlur(false) : setIsBackGroundBlur(true);
   }, []);
 
   const onSubmit = (e) => {
@@ -37,14 +35,9 @@ const HomePage = () => {
   };
 
   const onPressNavigateBlog = () => {
-    setDiaLogAttribute({
+    dispatch({
       type: DialLogState.ALERT,
-      text: "정말로 페이지를 이동하겠습니까",
-      isOpen: true,
-      onConfirm: async () => {
-        await setDiaLogAttribute({ isOpen: false });
-        window.location.href = "/posts";
-      },
+      payload: { text: "정말로 페이지를 이동하겠습니까", url: "/posts" },
     });
   };
 
