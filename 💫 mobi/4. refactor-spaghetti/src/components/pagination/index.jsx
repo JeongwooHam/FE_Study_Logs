@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { PostApi } from "../../apis/post";
 
 const LIMIT_PAGE = 10;
 const LIMIT_TAKE = 20;
@@ -10,7 +11,8 @@ const Pagination = ({ target }) => {
   const [pageNation, setPageNation] = useState();
 
   const fetchCommentPageNation = async () => {
-    const response = await axios.get(`/api/${target}`, {
+    const response = await PostApi.getList({
+      target,
       params: {
         page: params.get("page") ?? 1,
         take: params.get("take") ?? LIMIT_TAKE,

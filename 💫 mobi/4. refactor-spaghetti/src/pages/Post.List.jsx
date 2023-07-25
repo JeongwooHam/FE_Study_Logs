@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { DialLogState, useDiaLogStore } from "../contexts/DialogProvider";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination";
+import { PostApi } from "../apis/post";
 
 const LIMIT_TAKE = 10;
 const PostListPage = () => {
@@ -11,7 +12,8 @@ const PostListPage = () => {
   const [, setDiaLogAttribute] = useDiaLogStore();
 
   const fetchPostList = async () => {
-    const response = await axios.get("/api/posts", {
+    const response = await PostApi.getList({
+      target: "posts",
       params: {
         take: params.get("take") ?? LIMIT_TAKE,
       },

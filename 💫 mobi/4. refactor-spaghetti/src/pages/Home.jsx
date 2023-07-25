@@ -74,7 +74,7 @@ const HomePage = () => {
       )}
       <HomeContents>
         <h1>Home Page</h1>
-        <h3>오늘의 기온</h3>
+        <h3>🌤️ 오늘의 기온 🌡️</h3>
         <p>
           <span>{weather?.find((el) => el.category === "T1H").obsrValue}</span>
           °C

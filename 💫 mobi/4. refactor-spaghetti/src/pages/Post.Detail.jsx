@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { styled } from "styled-components";
 import Pagination from "../components/pagination";
+import { PostApi } from "../apis/post";
 
 const LIMIT_TAKE = 20;
 const PostDetailPage = () => {
@@ -12,13 +13,14 @@ const PostDetailPage = () => {
   const [isOpenCommentList, setIsOpenCommentList] = useState(false);
 
   const fetchPostDetail = async () => {
-    const response = await axios.get("/api/post");
+    const response = await PostApi.getList({ target: "post" });
     setPostDetail(response.data);
   };
 
   // take 부분은 axiosInstance의 기본 params로 설정할 수 있을듯!
   const fetchComments = async () => {
-    const response = await axios.get("/api/comments", {
+    const response = await PostApi.getList({
+      target: "comments",
       params: {
         take: params.get("take") ?? LIMIT_TAKE,
       },
