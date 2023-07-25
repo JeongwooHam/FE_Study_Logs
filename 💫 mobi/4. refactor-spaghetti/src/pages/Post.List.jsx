@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { DialLogState, useDiaLogStore } from "../contexts/DialogProvider";
-import PostPageNation from "../components/pagenation/Pagenation.Post";
 import { useSearchParams } from "react-router-dom";
-import Pagination from "../components/pagenation/Pagination";
+import Pagination from "../components/pagination";
 
 const LIMIT_TAKE = 10;
 const PostListPage = () => {
@@ -68,7 +67,6 @@ const PostListPage = () => {
           </tr>
         ))}
       </table>
-      {/* <PostPageNation /> */}
       <Pagination target={"posts"} />
     </>
   );

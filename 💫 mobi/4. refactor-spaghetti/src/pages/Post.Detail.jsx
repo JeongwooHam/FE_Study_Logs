@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CommentPageNation from "../components/pagenation/Pagenation.Comment";
 import { useSearchParams } from "react-router-dom";
 import { styled } from "styled-components";
-import Pagination from "../components/pagenation/Pagination";
+import Pagination from "../components/pagination";
 
 const LIMIT_TAKE = 20;
 const PostDetailPage = () => {
@@ -75,7 +74,6 @@ const PostDetailPage = () => {
                 </p>
               </S.Comment>
             ))}
-            {/* <CommentPageNation /> */}
             <Pagination target={"comments"} />
           </>
         )}

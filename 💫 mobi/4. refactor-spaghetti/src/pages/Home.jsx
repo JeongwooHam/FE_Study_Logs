@@ -74,8 +74,11 @@ const HomePage = () => {
       )}
       <HomeContents>
         <h1>Home Page</h1>
-        <p>오늘의 기온</p>
-        <p>{weather?.find((el) => el.category === "T1H").obsrValue}도</p>
+        <h3>오늘의 기온</h3>
+        <p>
+          <span>{weather?.find((el) => el.category === "T1H").obsrValue}</span>
+          °C
+        </p>
         <S.Button onClick={onPressNavigateBlog}>블로그 보러가기</S.Button>
       </HomeContents>
     </>
@@ -103,7 +106,11 @@ const HomeContents = styled.div`
   text-align: center;
   margin: 15% 0;
   overflow-y: hidden;
-  line-height: 40px;
+  line-height: 50px;
+  p > span {
+    font-size: 50px;
+    color: #7895cb;
+  }
 `;
 
 const Button = styled.button`
