@@ -7,13 +7,22 @@ import WeatherInfo from "./components/Weather";
 
 const HomePage = () => {
   const [isBackGroundBlur, setIsBackGroundBlur] = useState(true);
-  const { isOpen, OpenDialog } = useDiaLogStore();
+  const { dispatch, OpenDialog } = useDiaLogStore();
   // console.log("isOpen: ", isOpen);
 
   useEffect(() => {
     const userName = localStorage.getItem("userName");
     return userName ? setIsBackGroundBlur(false) : setIsBackGroundBlur(true);
   }, []);
+
+  const onPressNavigateBlog = () => {
+    console.log("clicked");
+    OpenDialog();
+    dispatch({
+      type: DialLogState.ALERT,
+      payload: { text: "정말로 페이지를 이동하겠습니까", url: "/posts" },
+    });
+  };
 
   return (
     <>
@@ -23,7 +32,7 @@ const HomePage = () => {
       <HomeContents>
         <h1>Home Page</h1>
         <WeatherInfo />
-        <S.Button onClick={OpenDialog}>블로그 보러가기</S.Button>
+        <S.Button onClick={onPressNavigateBlog}>블로그 보러가기</S.Button>
       </HomeContents>
       <Dialog />
     </>
@@ -58,12 +67,3 @@ const S = {
   Button,
   HomeContents,
 };
-
-// const onPressNavigateBlog = () => {
-//   console.log("clicked");
-//   setIsOpen(true);
-//   dispatch({
-//     type: DialLogState.ALERT,
-//     payload: { text: "정말로 페이지를 이동하겠습니까", url: "/posts" },
-//   });
-// };

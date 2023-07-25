@@ -18,8 +18,8 @@ const initialState = {
 // confirm에서 action.payload: confirm/cancle
 const DiaLogReducer = (state, action) => {
   switch (action.type) {
-    // case DialLogState.ALERT:
-    //   return { ...state, ...action.payload };
+    case DialLogState.ALERT:
+      return { ...state, ...action.payload };
     // case DialLogState.CONFIRM:
     //   return { ...state, ...action.payload };
     // case DialLogState.CONFIRMAGAIN:

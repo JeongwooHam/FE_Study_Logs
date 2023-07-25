@@ -5,16 +5,16 @@ import { useNavigate } from "react-router-dom";
 
 const Dialog = () => {
   const { state, isOpen, CloseDialog } = useDiaLogStore();
-  const { type, text, position } = state;
+  const { type, text, position, url } = state;
 
   const navigate = useNavigate();
 
-  // const handleConfirm = () => {
-  //   if (type !== DialLogState.ALERT) {
-  //     navigate(url);
-  //   }
-  //   CloseDialog();
-  // };
+  const handleConfirm = () => {
+    if (url) {
+      navigate(url);
+    }
+    CloseDialog();
+  };
 
   useEffect(() => {
     console.log("Dialog isOpen (inside useEffect): ", isOpen);
@@ -24,8 +24,8 @@ const Dialog = () => {
     <S.Wrapper $position={position}>
       <S.CloseButton onClick={() => CloseDialog()}>x</S.CloseButton>
       {text}
-      <S.Button>확인</S.Button>
-      {type !== DialLogState.ALERT && (
+      <S.Button onClick={handleConfirm}>확인</S.Button>
+      {type === DialLogState.CONFIRM && (
         <S.Button onClick={() => CloseDialog()}>취소</S.Button>
       )}
     </S.Wrapper>
