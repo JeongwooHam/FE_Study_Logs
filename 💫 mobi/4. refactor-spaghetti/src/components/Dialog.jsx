@@ -14,7 +14,7 @@ const Dialog = () => {
   const handleConfirm = () => {
     if (url) {
       navigate(url);
-      handleClose();
+      CloseDialog();
     } else {
       dispatch({
         type: DialLogState.CONFIRM,
@@ -26,20 +26,13 @@ const Dialog = () => {
     }
   };
 
-  const handleClose = () => {
-    dispatch({
-      type: DialLogState.CLOSE,
-    });
-    CloseDialog();
-  };
-
   return isOpen ? (
     <S.Wrapper $position={position}>
-      <S.CloseButton onClick={handleClose}>x</S.CloseButton>
+      <S.CloseButton onClick={CloseDialog}>x</S.CloseButton>
       {text}
       <S.Button onClick={handleConfirm}>확인</S.Button>
       {type === DialLogState.CONFIRM && (
-        <S.Button onClick={handleClose}>취소</S.Button>
+        <S.Button onClick={CloseDialog}>취소</S.Button>
       )}
     </S.Wrapper>
   ) : null;

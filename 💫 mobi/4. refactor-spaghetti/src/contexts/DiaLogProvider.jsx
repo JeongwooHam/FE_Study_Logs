@@ -14,11 +14,9 @@ const initialState = {
   position: { x: 50, y: 10 },
 };
 
-// case: alert, confirm
-// confirm에서 action.payload: confirm/cancle
 const DiaLogReducer = (state, action) => {
   switch (action.type) {
-    case DialLogState.ALERT:
+    case DialLogState.ALERT || DialLogState.CONFIRM:
       return { ...state, ...action.payload, type: DialLogState.ALERT };
     case DialLogState.CONFIRM:
       return { ...state, ...action.payload, type: DialLogState.CONFIRM };
@@ -40,6 +38,9 @@ const DiaLogProvider = ({ children }) => {
   };
 
   const CloseDialog = () => {
+    dispatch({
+      type: DialLogState.CLOSE,
+    });
     setIsOpen(false);
   };
 
