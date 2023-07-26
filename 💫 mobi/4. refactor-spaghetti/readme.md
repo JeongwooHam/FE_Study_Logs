@@ -154,6 +154,7 @@ const Dialog = () => {
 };
 ```
 
+- Dialog를 forwardRef를 사용하지 않는 일반 컴포넌트로 수정하여 DOM에 직접 접근하지 않고 컴포넌트를 렌더링할 수 있도록 하였습니다.
 - Dialog 컴포넌트 내부에서 useDialogStore 전역 상태를 활용하여 불필요한 Props Drilling을 없앴습니다.
 
 ```js
