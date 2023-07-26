@@ -1,32 +1,45 @@
 import styled from "styled-components";
 import { DialLogState, useDiaLogStore } from "../contexts/DialogProvider";
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Dialog = () => {
-  const { state, isOpen, CloseDialog } = useDiaLogStore();
-  const { type, text, position, url } = state;
+  const { state, dispatch, isOpen, CloseDialog } = useDiaLogStore();
+  const { type, text, position, url, postId } = state;
+
+  console.log("text", text);
 
   const navigate = useNavigate();
 
   const handleConfirm = () => {
     if (url) {
       navigate(url);
+      handleClose();
+    } else {
+      dispatch({
+        type: DialLogState.CONFIRM,
+        payload: {
+          text: "정말로 이동해버린다요!",
+          url: `/post-detail/${postId}`,
+        },
+      });
     }
+  };
+
+  const handleClose = () => {
+    dispatch({
+      type: DialLogState.CLOSE,
+    });
     CloseDialog();
   };
 
-  useEffect(() => {
-    console.log("Dialog isOpen (inside useEffect): ", isOpen);
-  }, [isOpen]);
-
   return isOpen ? (
     <S.Wrapper $position={position}>
-      <S.CloseButton onClick={() => CloseDialog()}>x</S.CloseButton>
+      <S.CloseButton onClick={handleClose}>x</S.CloseButton>
       {text}
       <S.Button onClick={handleConfirm}>확인</S.Button>
       {type === DialLogState.CONFIRM && (
-        <S.Button onClick={() => CloseDialog()}>취소</S.Button>
+        <S.Button onClick={handleClose}>취소</S.Button>
       )}
     </S.Wrapper>
   ) : null;

@@ -3,7 +3,7 @@ import { createContext, useContext, useReducer, useState } from "react";
 export const DialLogState = {
   ALERT: "ALERT",
   CONFIRM: "CONFIRM",
-  CONFIRMAGAIN: "CONFIRMAGAIN",
+  CLOSE: "CLOSE",
 };
 
 const DiaLogContext = createContext();
@@ -19,11 +19,11 @@ const initialState = {
 const DiaLogReducer = (state, action) => {
   switch (action.type) {
     case DialLogState.ALERT:
-      return { ...state, ...action.payload };
-    // case DialLogState.CONFIRM:
-    //   return { ...state, ...action.payload };
-    // case DialLogState.CONFIRMAGAIN:
-    //   return { ...state, ...action.payload };
+      return { ...state, ...action.payload, type: DialLogState.ALERT };
+    case DialLogState.CONFIRM:
+      return { ...state, ...action.payload, type: DialLogState.CONFIRM };
+    case DialLogState.CLOSE:
+      return { ...initialState };
     default:
       return state;
   }

@@ -29,7 +29,7 @@ const Pagination = ({ target }) => {
     fetchCommentPageNation();
   }, [params]);
 
-  console.log(pageNation);
+  // console.log(pageNation);
 
   const onClickPage = (page) => {
     setParams({
