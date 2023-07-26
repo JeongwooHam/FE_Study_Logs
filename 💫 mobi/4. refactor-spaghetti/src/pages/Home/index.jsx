@@ -20,7 +20,11 @@ const HomePage = () => {
     OpenDialog();
     dispatch({
       type: DialLogState.ALERT,
-      payload: { text: "정말로 페이지를 이동하겠습니까", url: "/posts" },
+      payload: {
+        type: DialLogState.ALERT,
+        text: "정말로 페이지를 이동하겠습니까",
+        url: "/posts",
+      },
     });
   };
 

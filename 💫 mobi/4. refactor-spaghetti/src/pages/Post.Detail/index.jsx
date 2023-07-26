@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { styled } from "styled-components";
-import Pagination from "../components/pagination";
-import { PostApi } from "../apis/post";
+import Pagination from "../../components/pagination";
+import { PostApi } from "../../apis/post";
+import { IsUserName } from "../../utils/isUserName";
 
 const LIMIT_TAKE = 20;
 const PostDetailPage = () => {
@@ -39,11 +40,7 @@ const PostDetailPage = () => {
   };
 
   useEffect(() => {
-    const userName = localStorage.getItem("userName");
-    if (!userName) {
-      alert("로그인이 필요합니다");
-      window.location.href = "/";
-    }
+    IsUserName();
     fetchPostDetail();
   }, []);
 

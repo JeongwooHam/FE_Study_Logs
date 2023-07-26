@@ -32,7 +32,7 @@ const Dialog = () => {
   ) : null;
 };
 // 개발자 도구에서 컴포넌트의 이름을 확인할 때 사용됨
-// Dialog.displayName = "dialog";
+Dialog.displayName = "dialog";
 export default Dialog;
 
 const Wrapper = styled.dialog`
