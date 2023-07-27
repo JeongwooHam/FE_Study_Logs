@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { PostApi } from "../../apis/post";
 import { IsUserName } from "../../utils/isUserName";
 import CommentList from "./components/commentList";
 import useFetch from "../../hooks/useFetch";
 
 const PostDetailPage = () => {
-  const { data, loading, error } = useFetch(PostApi.getPostDetail);
-  const postDetail = data;
+  const { data: postDetail } = useFetch(PostApi.getPostDetail);
 
   useEffect(() => {
     IsUserName();

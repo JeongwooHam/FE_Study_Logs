@@ -13,7 +13,7 @@ const PostListPage = () => {
   const [params] = useSearchParams();
   const { dispatch, OpenDialog } = useDiaLogStore();
 
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch(
     PostApi.getList,
     {
       target: "posts",
