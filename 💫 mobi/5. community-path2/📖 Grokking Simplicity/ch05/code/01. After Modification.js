@@ -1,4 +1,4 @@
-// Before Modification
+// 🤖 Before Modification
 function gets_free_shipping(total, item_price) {
   return item_price + total >= 20;
 }
@@ -14,7 +14,7 @@ function calc_total(cart) {
 
 // ====================================================================
 
-// After Modification
+// 🤖 After Modification
 // cart라는 인자를 받도록 수정 (장바구니가 무료인지 알려줌)
 function gets_free_shipping(cart) {
   // calc_total 함수를 재사용하여 중복 제거

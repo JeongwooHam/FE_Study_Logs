@@ -1,4 +1,4 @@
-// Before Modification
+// 🤖 Before Modification
 function update_shipping_icons() {
   let buttons = get_buy_buttons_dom();
   for (let i = 0; i < buttons.length; i++) {
@@ -11,7 +11,9 @@ function update_shipping_icons() {
   }
 }
 
-// After Modification
+// ====================================================================
+
+// 🤖 After Modification
 // cart라는 인자를 받아옴 (명시적 입력)
 function update_shipping_icons(cart) {
   let buttons = get_buy_buttons_dom();
