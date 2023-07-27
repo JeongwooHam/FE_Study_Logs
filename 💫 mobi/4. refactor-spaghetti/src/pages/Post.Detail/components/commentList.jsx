@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { PostApi } from "../../../apis/post";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../../../components/pagination";
 import { styled } from "styled-components";
 import useFetch from "../../../hooks/useFetch";
+import useToggle from "../../../hooks/useToggle";
 
 const LIMIT_TAKE = 20;
 const CommentList = () => {
   const [params] = useSearchParams();
-  const [isOpenCommentList, setIsOpenCommentList] = useState(false);
+  const { isOpen: isOpenCommentList, onPressToggle } = useToggle();
 
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch(
     PostApi.getList,
     {
       target: "comments",
@@ -24,12 +25,13 @@ const CommentList = () => {
 
   useEffect(() => {
     if (!isOpenCommentList) return;
-  }, [params, isOpenCommentList]);
+  }, [params]);
 
   return (
     <>
-      <button onClick={() => setIsOpenCommentList((prev) => !prev)}>
-        {isOpenCommentList ? "댓글 숨기기" : "댓글 보기"}
+      <button onClick={() => onPressToggle()}>
+        댓글
+        {isOpenCommentList ? " 숨기기" : " 보기"}
       </button>
       {isOpenCommentList && (
         <>
