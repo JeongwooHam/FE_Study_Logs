@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { DialLogState, useDiaLogStore } from "../../contexts/DialogProvider";
+import { DialLogState, useDiaLogStore } from "../../contexts/DiaLogProvider";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../../components/pagination";
 import { PostApi } from "../../apis/post";
@@ -38,7 +38,7 @@ const PostListPage = () => {
       type: DialLogState.CONFIRM,
       payload: {
         text: "정말로 페이지를 이동하겠습니까",
-        id: postId,
+        postId,
       },
     });
   };

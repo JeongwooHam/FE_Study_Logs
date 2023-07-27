@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { DialLogState, useDiaLogStore } from "../../contexts/DialogProvider";
+import { DialLogState, useDiaLogStore } from "../../contexts/DiaLogProvider";
 import Dialog from "../../components/Dialog";
 import NameForm from "./components/NameForm";
 import WeatherInfo from "./components/Weather";
@@ -21,7 +21,6 @@ const HomePage = () => {
     dispatch({
       type: DialLogState.ALERT,
       payload: {
-        type: DialLogState.ALERT,
         text: "정말로 페이지를 이동하겠습니까",
         url: "/posts",
       },

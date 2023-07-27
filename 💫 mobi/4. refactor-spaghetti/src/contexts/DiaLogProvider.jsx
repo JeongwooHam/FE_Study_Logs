@@ -16,7 +16,7 @@ const initialState = {
 
 const DiaLogReducer = (state, action) => {
   switch (action.type) {
-    case DialLogState.ALERT || DialLogState.CONFIRM:
+    case DialLogState.ALERT:
       return { ...state, ...action.payload, type: DialLogState.ALERT };
     case DialLogState.CONFIRM:
       return { ...state, ...action.payload, type: DialLogState.CONFIRM };

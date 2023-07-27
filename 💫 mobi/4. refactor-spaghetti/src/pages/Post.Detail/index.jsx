@@ -7,7 +7,7 @@ const PostDetailPage = () => {
   const [postDetail, setPostDetail] = useState([]);
 
   const fetchPostDetail = async () => {
-    const response = await PostApi.getList({ target: "post" });
+    const response = await PostApi.getPostDetail();
     setPostDetail(response.data);
   };
 

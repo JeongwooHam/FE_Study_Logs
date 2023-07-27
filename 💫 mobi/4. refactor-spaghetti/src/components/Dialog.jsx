@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DialLogState, useDiaLogStore } from "../contexts/DialogProvider";
+import { DialLogState, useDiaLogStore } from "../contexts/DiaLogProvider";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,8 @@ const Dialog = () => {
   console.log("text", text);
 
   const navigate = useNavigate();
+
+  console.log("id", postId);
 
   const handleConfirm = () => {
     if (url) {
