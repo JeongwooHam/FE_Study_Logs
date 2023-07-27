@@ -3,17 +3,24 @@ import styled from "styled-components";
 import { DialLogState, useDiaLogStore } from "../../contexts/DiaLogProvider";
 import Dialog from "../../components/Dialog";
 import NameForm from "./components/NameForm";
-import WeatherInfo from "./components/Weather";
+import { WeatherApi } from "../../apis/weather";
+import useFetch from "../../hooks/useFetch";
 
 const HomePage = () => {
   const [isBackGroundBlur, setIsBackGroundBlur] = useState(true);
   const { dispatch, OpenDialog } = useDiaLogStore();
-  // console.log("isOpen: ", isOpen);
 
   useEffect(() => {
-    const userName = localStorage.getItem("userName");
-    return userName ? setIsBackGroundBlur(false) : setIsBackGroundBlur(true);
+    const userName = !!localStorage.getItem("userName");
+    setIsBackGroundBlur(!userName);
   }, []);
+
+  const { data, loading, error } = useFetch(WeatherApi.getTodaysTemp);
+  const weather = data?.response?.body.items.item;
+
+  if (loading) {
+    return <div>로딩중...</div>;
+  }
 
   const onPressNavigateBlog = () => {
     console.log("clicked");
@@ -34,7 +41,11 @@ const HomePage = () => {
       )}
       <HomeContents>
         <h1>Home Page</h1>
-        <WeatherInfo />
+        <h3>🌤️ 오늘의 기온 🌡️</h3>
+        <p>
+          <span>{weather?.find((el) => el.category === "T1H").obsrValue}</span>
+          °C
+        </p>
         <S.Button onClick={onPressNavigateBlog}>블로그 보러가기</S.Button>
       </HomeContents>
       <Dialog />

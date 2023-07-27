@@ -3,28 +3,27 @@ import { PostApi } from "../../../apis/post";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../../../components/pagination";
 import { styled } from "styled-components";
+import useFetch from "../../../hooks/useFetch";
 
 const LIMIT_TAKE = 20;
 const CommentList = () => {
   const [params] = useSearchParams();
-  const [commentList, setCommentList] = useState([]);
   const [isOpenCommentList, setIsOpenCommentList] = useState(false);
 
-  // take 부분은 axiosInstance의 기본 params로 설정할 수 있을듯!
-  const fetchComments = async () => {
-    const response = await PostApi.getList({
+  const { data, loading, error } = useFetch(
+    PostApi.getList,
+    {
       target: "comments",
       params: {
         take: params.get("take") ?? LIMIT_TAKE,
       },
-    });
-    console.log(response.data);
-    setCommentList(response.data.Comments);
-  };
+    },
+    params
+  );
+  const commentList = data?.Comments;
 
   useEffect(() => {
     if (!isOpenCommentList) return;
-    fetchComments();
   }, [params, isOpenCommentList]);
 
   return (
@@ -34,7 +33,7 @@ const CommentList = () => {
       </button>
       {isOpenCommentList && (
         <>
-          {commentList.map((comment) => (
+          {commentList?.map((comment) => (
             <S.Comment key={comment.id}>
               <p>
                 <span>Content:</span> {comment.content}

@@ -2,26 +2,22 @@ import { useEffect, useState } from "react";
 import { PostApi } from "../../apis/post";
 import { IsUserName } from "../../utils/isUserName";
 import CommentList from "./components/commentList";
+import useFetch from "../../hooks/useFetch";
 
 const PostDetailPage = () => {
-  const [postDetail, setPostDetail] = useState([]);
-
-  const fetchPostDetail = async () => {
-    const response = await PostApi.getPostDetail();
-    setPostDetail(response.data);
-  };
+  const { data, loading, error } = useFetch(PostApi.getPostDetail);
+  const postDetail = data;
 
   useEffect(() => {
     IsUserName();
-    fetchPostDetail();
   }, []);
 
   return (
     <div>
       <h1>Post Detail Page</h1>
       <div>
-        <p>제목: {postDetail.title}</p>
-        <p>내용: {postDetail.content}</p>
+        <p>제목: {postDetail?.title}</p>
+        <p>내용: {postDetail?.content}</p>
       </div>
       <CommentList />
     </div>
