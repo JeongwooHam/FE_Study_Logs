@@ -1,7 +1,7 @@
 // Page 123 It's your turn
 
-var a = [1, 2, 3, 4];
-var b = a.pop();
+let a = [1, 2, 3, 4];
+let b = a.pop();
 console.log(b); // prints 4
 console.log(a); // prints [1, 2, 3]
 
@@ -20,7 +20,7 @@ function drop_last(array) {
 //// Copy-on-write
 
 function drop_last(array) {
-  var array_copy = array.slice();
+  let array_copy = array.slice();
   array_copy.pop();
   return array_copy;
 }
@@ -34,10 +34,10 @@ function pop(array) {
 //// Copy-on-write
 
 function pop(array) {
-  var array_copy = array.slice();
-  var first = array_copy.pop();
+  let array_copy = array.slice();
+  let first = array_copy.pop();
   return {
-    first : first,
-    array : array_copy
+    first: first,
+    array: array_copy,
   };
 }

@@ -9,7 +9,7 @@ function drop_first(array) {
 // Copy-on-write
 
 function drop_first(array) {
-  var array_copy = array.slice();
+  let array_copy = array.slice();
   array_copy.shift();
   return array_copy;
 }

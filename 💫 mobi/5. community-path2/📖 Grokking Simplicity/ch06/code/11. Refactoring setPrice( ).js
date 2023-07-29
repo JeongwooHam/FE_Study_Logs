@@ -1,7 +1,7 @@
 /// It's your turn
 
 function setPrice(item, new_price) {
-  var item_copy = Object.assign({}, item);
+  let item_copy = Object.assign({}, item);
   item_copy.price = new_price;
   return item_copy;
 }
@@ -9,5 +9,5 @@ function setPrice(item, new_price) {
 /// Answer
 
 function setPrice(item, new_price) {
-  return objectSet(item, 'price', new_price);
+  return objectSet(item, "price", new_price);
 }

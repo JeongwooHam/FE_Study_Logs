@@ -1,5 +1,5 @@
 function arraySet(array, idx, value) {
-  var copy = array.slice();
+  let copy = array.slice();
   copy[idx] = value;
   return copy;
 }
