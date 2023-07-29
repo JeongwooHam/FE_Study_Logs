@@ -62,9 +62,12 @@ console.log(arr2[0].a); // 1번 객체
 </details>
 
 <br/>
+
 ## 🖨️ COPY-ON-WRITE
 
 ### 📢 쓰기를 읽기로 바꾸자!
+[수정 예시](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%93%96%20Grokking%20Simplicity/ch06/code/00.%20Converting%20Write%20to%20Read.js)
+
 
 ### 🤔 불변형 데이터 구조란?
 
@@ -91,6 +94,8 @@ console.log(arr2[0].a); // 1번 객체
    <br/>
    <code> return new_array </code>
 
+<br/>
+
 ### 🧐 쓰기와 읽기를 동시에 하는 동작은 어떻게 처리할 수 있을까?
 
 <details>
@@ -111,7 +116,8 @@ console.log(a); // [2, 3, 4] > 실제 데이터의 값도 바뀜
 </details>
 <br/>
 
-    copy-on-write에서는 쓰기를 읽기로 바꿔야 하는데,
-    이미 쓰기이면서 동시에 읽기로서 값을 리턴하고 있다면?
-    1. 읽기와 쓰기 함수로 각각 분리하기
-    2. 함수에서 값을 두 개 리턴하기
+copy-on-write에서는 쓰기를 읽기로 바꿔야 하는데, 이미 쓰기이면서 동시에 읽기로서 값을 리턴하고 있다면?
+
+[1. 읽기와 쓰기 함수로 각각 분리하기](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%93%96%20Grokking%20Simplicity/ch06/code/03.%20Splitting%20Function%20That%20Does%20Both%20Actions.js)
+<br/>
+[2. 함수에서 값을 두 개 리턴하기](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%93%96%20Grokking%20Simplicity/ch06/code/04%2C%20Making%20Function%20to%20Return%20Two%20Values.js)
