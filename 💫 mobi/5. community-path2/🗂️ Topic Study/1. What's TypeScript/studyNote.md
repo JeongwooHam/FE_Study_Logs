@@ -82,13 +82,6 @@ TS는 JS의 Superset으로, TS로 작성된 코드가 브라우저에서 실행�
   - <code>declarationEmmiter.ts</code>
     : .d.ts 코드 - 타입만 정의해놓은 파일 - 컴파일러가 만들어내기도 하고, 사용자가 정의할 수도 있음 - 이 파일로 변수 유형을 지정해두면, 컴파일러는 이 파일을 타입 추론에 참고함
 
-#### 📑 REFERENCES
-
-[TypeScript Compile Process](https://www.nextree.io/typescript-compile-process/)
-<br/>
-[TypeScript / How the compiler compiles](https://www.huy.rocks/everyday/04-01-2022-typescript-how-the-compiler-compiles)
-<br/>
-[Understanding TypeScript’s “Compilation Process” & the anatomy of “tsconfig.json” file to configure TypeScript Compiler](https://medium.com/jspoint/typescript-compilation-the-typescript-compiler-4cb15f7244bc)
 
 ## 💡 우리가 TypeScript를 사용해야 하는 이유
 
@@ -122,9 +115,3 @@ TS는 JS의 Superset으로, TS로 작성된 코드가 브라우저에서 실행�
 ### 🌟 강력한 생태계
 
     - 대부분의 라이브러리 및 VS Code 등 각종 에디터가 TS 및 관련 플러그인 지원
-
-#### 📑 REFERENCES
-
-[왜 타입스크립트인가](https://radlohead.gitbook.io/typescript-deep-dive/getting-started/why-typescript)
-<br/>
-[활용도가 높아지는 웹 프론트엔드 언어, 타입스크립트(TypeScript)](https://www.samsungsds.com/kr/insights/typescript.html)
