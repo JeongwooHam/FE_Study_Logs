@@ -1,1 +1,1 @@
-# interface과 type alias의 차이와 사용 용도는 무엇일까
+![image](https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/7d4b149d-30dd-424a-b269-2235ebdaafd2)
