@@ -13,8 +13,12 @@ type ReactNode =
 ```
 
 - ReactNode는 ReactChild, ReactFragment, ReactPortal, boolean, null 또는 undefined 중 하나가 되는 타입이다.
+
+## 🗝️ ReactNode 사용하기
+
 - 모든 것을 허용하기 때문에 children 속성의 타입으로 가장 많이 사용하는 타입이다.
 - JSX.Element와 다르게 element, 원시값, portal, fragment 등등을 모두 받을 수 있다.
+- 클래스 컴포넌트의 <code>render()</code>가 기본적으로 리턴하는 타입
 
 > 🤔 원시값은 허용되지 않는 것 아닌가?
 
