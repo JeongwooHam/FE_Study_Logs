@@ -105,7 +105,7 @@ type VFC<P = {}> = VoidFunctionComponent<P>;
 
 - React는 TS로 작성되어 있지 않다.
   - React 커뮤니티에서는 <code>@types/react</code> 패키지를 통한 React 타이핑을 지원한다.
-  - 이 패키지의 <code><FC></code> generic을 활용해 함수형 컴포넌트 타이핑이 가능하다.
+  - 이 패키지의 `<FC>` generic을 활용해 함수형 컴포넌트 타이핑이 가능하다.
 
 ```tsx
 import { FC } from "react";
