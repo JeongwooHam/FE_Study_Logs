@@ -78,14 +78,14 @@ const Frankenstein: MyBook = {
 
 > 👾 Type Alias
 
-<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/7f97c16f-6be7-4b79-8f93-bd9a6d6fbea5" width="60%">
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/7f97c16f-6be7-4b79-8f93-bd9a6d6fbea5" width="30%">
 
 - Type Alias는 단순히 타입에 대한 별칭을 지정하는 기능으로, 타입을 확장하거나 조합하는 것이 아니다.
 - 따라서 유연하게 동적 프로퍼티 추론이 가능하다!
 
 > 👾 Interface
 
-<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/af16c3b3-3dd3-4bc5-8e08-8d0a6ae04dd1" width="60%">
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/af16c3b3-3dd3-4bc5-8e08-8d0a6ae04dd1" width="30%">
 
 - 에러가 발생하지는 않지만, 자동완성을 지원하지 않고 any 타입으로 추론된다.
 - 이는 interface가 타입 간의 상속과 구현을 지원하는, 타입 정의의 더 강력하고 구조적인 방법이기 때문이다.
@@ -107,7 +107,11 @@ const Frankenstein: MyBook = {
 
 ### 🤔 그렇다면 뭘 쓰는게 좋을까?
 
-    간단하게 사용하기에는 Type Alias도 나쁘지 않아보인다. 실제로 Interface에서 사용하려면 Type Alias보다 번거워지는 기능들도 있다. 하지만 확장을 해줄 때 새로운 선언이 필요 없고, 정적 타입 검사를 진행한다는 점에서 TS를 쓰는 목적에 더 부합한 것 같아 주로 interface를 사용하게 될 것 같다. (실제로 TypeScript 공식 문서에서도 Interface의 사용을 권장하고 있다고 한다!)
+    간단하게 사용하기에는 Type Alias도 나쁘지 않아보인다. 
+    실제로 Interface에서 사용하려면 Type Alias보다 번거워지는 기능들도 있다. 
+    하지만 확장을 해줄 때 새로운 선언이 필요 없고, 
+    정적 타입 검사를 진행한다는 점에서 TS를 쓰는 목적에 더 부합한 것 같아 주로 interface를 사용하게 될 것 같다. 
+    (실제로 TypeScript 공식 문서에서도 Interface의 사용을 권장하고 있다고 한다!)
 
 #### 🔎 References
 

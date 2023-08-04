@@ -1,48 +1,5 @@
 # 🌟 PropsWithRef
 
-## 🦴 [PropsWithRef 구조 파악하기](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/813a8799e465a7d5f0d6776643f20f93681e85e4/types/react/index.d.ts#L810)
-
-```ts
-/** Ensures that the props do not include string ref, which cannot be forwarded */
-// ref 속성이 문자열로 전달되는 것을 방지하고, 다른 타입의 ref만 허용하도록 props를 보장한다.
-type PropsWithRef<P> =
-  // Just "P extends { ref?: infer R }" looks sufficient, but R will infer as {} if P is {}.
-  "ref" extends keyof P
-    ? P extends { ref?: infer R }
-      ? string extends R
-        ? PropsWithoutRef<P> & { ref?: Exclude<R, string> }
-        : P
-      : P
-    : P;
-```
-
-> "ref" extends keyof P ?
-
-- **"ref"** 라는 속성이 **P** 의 속성들 중에 포함되어 있는지 검사하는 조건식
-- **P** 에 **ref** 속성이 존재하는가?
-- **p**가 <code>{ ref: ... }</code> 형태인지 검사한다.
-
-> P extends { ref?: infer R } ?
-
-- **P** 가 <code>{ ref?: infer R }</code> 형태일 때, **ref**의 타입을 추론하는 조건식
-- **R**은 **ref** 속성의 타입으로 추론된다.
-- 만약 **P** 가 빈 객체 <code>{ }</code> 일 경우 (어떠한 속성도 가지지 않을 경우) TS는 **P** 를 <code>{ ref?: infer R }</code> 로 해석함
-  - 다시 말해, **ref** 속성은 존재하나 추론되지 않고, <code>{ }</code> 로 추론됨
-  - 조건부 타입에서 타입이 일치하지 않을 때 (해당 타입의 속성이 없는 경우) 그 타입은 빈 객체로 추론되기 때문
-  - 첫 번째 조건식에서는 **P** 가 빈 객체여도 통과하나, 이 조건식에서 **P** 가 빈 객체이므로 **ref** 의 타입이 <code>{ }</code> 로 추론되는 것
-
-> string extends R ?
-
-- **R** 이 string으로 추론 가능한지 확인하는 조건식
-- **R** 이 문자열 타입인 경우
-  - `PropsWithoutRef<P>` 와 `{ ref?: Exclude<R, string> }` 을 합쳐서 반환한다.
-  - **P**에서 **ref** 속성을 제거한 뒤, **R**이 문자열 타입이 아닌 경우에만 **ref** 속성을 추가한다.
-  - TS에서, EmptyObject는 모든 타입의 상위 타입으로 취급되므로, string이 <code>{ }</code> 를 상속하게 되므로 빈 객체의 경우 위의 조건식은 참이 된다.
-  - 이를 통해 빈 객체의 경우 **ref** 속성의 타입이 <code>{ }</code> 로 추론되는 것을 막을 수 있다.
-- **R**이 문자열 타입이 아닌 경우
-  - 그대로 **P** 를 반환한다.
-  - **P** 에 **ref** 속성이 존재하고, **ref** 가 문자열 타입으로 추론되는 경우 아무 작업 없이 그대로 **P** 반환한다.
-
 ## 👾 forwardRef()
 
 PropsWithRef를 사용하기 전에 ref를 prop으로 넘기기 위해 사용하는 <code>forwardRef()</code>에 대한 이해가 선행되어야 할 것 같다.
@@ -181,15 +138,81 @@ export function InputBox1() {
 
 위처럼 코드를 수정해주면, 변수명을 ref로 지정해도 에러가 발생하지 않는 것을 확인할 수 있다.
 
+<br/>
+이처럼 <code>forwardRef()</code> 만 사용해줘도 화면에 에러 없이 렌더링되긴 하지만, <br/>
+컴포넌트 자체를 Ref용으로 바꿔주어야 한다. <br/>
+사실 컴포넌트 내부에서 직접 ref를 다루게 된다고 해서 문제가 있는 것은 아니지만, <br/>
+
+**🤔 일반 React.FC에서 Ref를 prop으로 사용하려면 어떻게 해야 할까?** <br/>
+이때 사용할 수 있는 것이 바로 PropsWithRef이다. <br/>
+
+## 🦴 [PropsWithRef 구조 파악하기](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/813a8799e465a7d5f0d6776643f20f93681e85e4/types/react/index.d.ts#L810)
+
+```ts
+/** Ensures that the props do not include string ref, which cannot be forwarded */
+// ref 속성이 문자열로 전달되는 것을 방지하고, 다른 타입의 ref만 허용하도록 props를 보장한다.
+type PropsWithRef<P> =
+  // Just "P extends { ref?: infer R }" looks sufficient, but R will infer as {} if P is {}.
+  "ref" extends keyof P
+    ? P extends { ref?: infer R }
+      ? string extends R
+        ? PropsWithoutRef<P> & { ref?: Exclude<R, string> }
+        : P
+      : P
+    : P;
+```
+
+> "ref" extends keyof P ?
+
+- **"ref"** 라는 속성이 **P** 의 속성들 중에 포함되어 있는지 검사하는 조건식
+- **P** 에 **ref** 속성이 존재하는가?
+- **p**가 <code>{ ref: ... }</code> 형태인지 검사한다.
+
+> P extends { ref?: infer R } ?
+
+- **P** 가 <code>{ ref?: infer R }</code> 형태일 때, **ref**의 타입을 추론하는 조건식
+- **R**은 **ref** 속성의 타입으로 추론된다.
+- 만약 **P** 가 빈 객체 <code>{ }</code> 일 경우 (어떠한 속성도 가지지 않을 경우) TS는 **P** 를 <code>{ ref?: infer R }</code> 로 해석함
+  - 다시 말해, **ref** 속성은 존재하나 추론되지 않고, <code>{ }</code> 로 추론됨
+  - 조건부 타입에서 타입이 일치하지 않을 때 (해당 타입의 속성이 없는 경우) 그 타입은 빈 객체로 추론되기 때문
+  - 첫 번째 조건식에서는 **P** 가 빈 객체여도 통과하나, 이 조건식에서 **P** 가 빈 객체이므로 **ref** 의 타입이 <code>{ }</code> 로 추론되는 것
+
+> string extends R ?
+
+- **R** 이 string으로 추론 가능한지 확인하는 조건식
+- **R** 이 문자열 타입인 경우
+  - `PropsWithoutRef<P>` 와 `{ ref?: Exclude<R, string> }` 을 합쳐서 반환한다.
+  - **P**에서 **ref** 속성을 제거한 뒤, **R**이 문자열 타입이 아닌 경우에만 **ref** 속성을 추가한다.
+  - TS에서, EmptyObject는 모든 타입의 상위 타입으로 취급되므로, string이 <code>{ }</code> 를 상속하게 되므로 빈 객체의 경우 위의 조건식은 참이 된다.
+  - 이를 통해 빈 객체의 경우 **ref** 속성의 타입이 <code>{ }</code> 로 추론되는 것을 막을 수 있다.
+- **R**이 문자열 타입이 아닌 경우
+  - 그대로 **P** 를 반환한다.
+  - **P** 에 **ref** 속성이 존재하고, **ref** 가 문자열 타입으로 추론되는 경우 아무 작업 없이 그대로 **P** 반환한다.
+
 ## 🗝️ PropsWithRef 사용하기
 
-<code>forwardRef()</code> 만 사용해줘도 화면에 에러 없이 렌더링되긴 하지만,
+```tsx
+type InputProps2 = {
+  ...
+  ref: React.Ref<HTMLInputElement>;
+};
 
-<br/>
+const MyInput2: FC<PropsWithRef<InputProps2>> = ({...}) => {
+  return (
+    <input ref={ref} ... />
+  );
+};
+```
 
-추가 예정
+- 위의 코드에서, `PropsWithRef<P>` 의 **P** 부분은 위에서 정의산 InputProps2가 될 것이라고 예상할 수 있다.
+- PropsWithRef가 React.FC에서도 Ref를 props로 사용할 수 있게 해주는 원리는 아래와 같다.
 
-<br/>
+1. TS에서는 타입의 프로퍼티 중 **ref**가 있는지 검사한다.
+2. 키 값 중 **ref**가 있다면, 해당 프로퍼티가 ref를 키 값으로 갖고, value가 존재하는 형태인지 검사한다.
+3. `React.Ref<HTMLInputElement>` 라는 value가 존재하므로 **ref**는 빈 값이 아님을 확인한다.
+4. **ref** 라는 프로퍼티 키 값에 `React.Ref<HTMLInputElement>` 값을 할당한다.
+
+- 이를 통해 **ref** 속성은 문자열이 아닌 useRef로 구현된 ref로서 전달된다.
 
 #### 🔎 References
 
@@ -197,12 +220,7 @@ export function InputBox1() {
 - [[React] ref를 prop으로 넘기기 - forwardRef()](https://dori-coding.tistory.com/entry/React-ref%EB%A5%BC-prop%EC%9C%BC%EB%A1%9C-%EB%84%98%EA%B8%B0%EA%B8%B0-forwardRef)
 - [[React] forwardRef 사용법](https://www.daleseo.com/react-forward-ref/)
 
-#### 🤖 Code References
-
-- [PropsWithRef Examples_1](https://github.com/rylnd/kibana/blob/757c881b9a845dd438c16f1eca915c1e522fcd5d/x-pack/plugins/spaces/public/ui_api/lazy_wrapper.tsx#L8) <br/>
-- [PropsWithRef Examples_2](https://github.com/meehawk/kibana/blob/master/x-pack/plugins/spaces/public/ui_api/components.tsx)
-
-#### 🫠 추가로 공부해볼 자료들
+#### 🫠 추가로 공부해볼 자료들 (아직 너무 어려움)
 
 - [Polymorphic한 React 컴포넌트 만들기](https://kciter.so/posts/polymorphic-react-component)
 - [제목은... 재사용성이 높은 컴포넌트 만들기라고 하겠습니다. 근데 이제 타입스크립트를 곁들인](https://www.pumpkiinbell.com/blog/react/reusable-components)

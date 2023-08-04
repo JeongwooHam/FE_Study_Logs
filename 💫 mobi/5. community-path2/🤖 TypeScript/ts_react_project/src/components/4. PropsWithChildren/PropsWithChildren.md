@@ -23,9 +23,3 @@ type PropsWithChildren<P> = P & { children?: ReactNode };
 #### 🔎 References
 
 [React.PropsWithChildren with no props other than `children`?](https://stackoverflow.com/questions/65548388/react-propswithchildren-with-no-props-other-than-children) <br/>
-
-#### 🤖 Code References
-
-[PropsWithChildren Examples_1](https://github.com/ChainSafe/metamask-snap-polkadot/blob/master/packages/example/src/context/metamask.tsx) <br/>
-[PropsWithChildren Examples_2](https://github.com/PacktPublishing/Full-Stack-React-TypeScript-and-Node/blob/master/Chap12/super-forum-client/src/components/editor/RichTextControls.tsx) <br/>
-[PropsWithChildren Examples_3](https://github.com/aqualinkorg/aqualink-app/blob/master/packages/website/src/common/Delayed/index.tsx)

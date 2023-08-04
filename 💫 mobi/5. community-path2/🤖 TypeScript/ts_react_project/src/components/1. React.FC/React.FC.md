@@ -263,10 +263,4 @@ const CodeSnippet: React.FC<Props> = ({ children }) => <div>{children}</div>;
 - [React.FC 사용 지양하기](https://velog.io/@yena1025/FunctionComponent-FC-%EC%82%AC%EC%9A%A9-%EC%A4%84%EC%9D%B4%EA%B8%B0-24jhm0wp) <br/>
 - [리액트에서 FC를 사용하지 말아야 하는 이유](https://emewjin.github.io/why-not-fc/)
 - [리액트 18의 타입스크립트 타입 변경점](https://blog.shiren.dev/2022-04-28/) <br/>
-- [React18 - Remove implicityly typed children](https://flowergeoji.me/react/remove-implicitly-typed-children/) <br/>
-
-#### 🤖 Code References
-
-- [React.FC Examples_1](https://github.com/9inpachi/react-circular-menu/blob/master/src/CircleButton/CircleButton.tsx) <br/>
-- [React.FC Examples_2](https://github.com/Joystream/atlas/blob/master/packages/atlas/src/components/EmptyFallback/EmptyFallback.tsx) <br/>
-- [React.FC Examples_3](https://github.com/nick-keller/react-datasheet-grid/blob/master/src/components/Cell.tsx) <br/>
+- [React18 - Remove implicityly typed children](https://flowergeoji.me/react/remove-implicitly-typed-children/)

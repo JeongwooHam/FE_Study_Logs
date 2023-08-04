@@ -39,7 +39,7 @@ const MoalContainer = styled.div`
   height: 500px;
   z-index: 10000;
   position: relative;
-  background-color: ${({ theme }) => theme.PALETTE.white};
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
