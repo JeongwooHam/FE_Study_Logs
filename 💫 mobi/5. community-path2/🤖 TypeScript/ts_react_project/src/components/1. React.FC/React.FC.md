@@ -1,6 +1,6 @@
 # 🌟 React.FC
 
-## 🦴 React.FC 구조 파악하기
+## 🦴 [React.FC 구조 파악하기](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/813a8799e465a7d5f0d6776643f20f93681e85e4/types/react/index.d.ts#L539)
 
 ### 📌 FunctionComponent
 
