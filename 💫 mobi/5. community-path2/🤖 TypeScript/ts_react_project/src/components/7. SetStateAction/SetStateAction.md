@@ -93,9 +93,8 @@ export const MyInput: React.FC<Props> = ({ setState }) => {
 
 - 위와 같은 에러가 발생한다.
 - 그렇다면 Dispatch가 **호출 시그니처** 의 역할을 하고 있다는 뜻인데, 정확히 Dispatch의 역할은 무엇일까? <br/> <br/>
-  **_[여기](https://github.com/mobi-community/mobi-path-typescript/blob/Jane/1week/3.%20ts_react_project/src/components/8.%20Dispatch/dispatch.md)서 알아보도록 하자._**
+  **_[여기](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%A4%96%20TypeScript/ts_react_project/src/components/8.%20Dispatch/dispatch.md) 에서 알아보도록 하자._**
 
 #### 🔎 References
-
 - [react typescript what type is setState?](https://stackoverflow.com/questions/64082847/react-typescript-what-type-is-setstate)
 - [[Typescript] <React.SetStateAction<type>> useState의 set함수 타입2](https://w-world.tistory.com/316)
