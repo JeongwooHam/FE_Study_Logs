@@ -17,11 +17,12 @@ type Dispatch<A> = (value: A) => void;
 
 ## 🗝️ Dispatch 사용하기
 
+1. [reducer 생성하기]()
+2. [dispatch 사용하기]()
+
 #### 🔎 References
 
-[How to safely type the useReducer hook](https://www.fabiobiondi.dev/blog/2023-01/how-to-safely-type-usereducer-in-react-and-typescript) <br/>
 [How to type state and dispatch for useReducer - TypeScript and React](https://stackoverflow.com/questions/59432133/how-to-type-state-and-dispatch-for-usereducer-typescript-and-react) <br/>
-[https://stackoverflow.com/questions/54844839/typescript-how-to-type-the-dispatch-in-redux](https://stackoverflow.com/questions/54844839/typescript-how-to-type-the-dispatch-in-redux)
 
 #### 🤖 Code References
 

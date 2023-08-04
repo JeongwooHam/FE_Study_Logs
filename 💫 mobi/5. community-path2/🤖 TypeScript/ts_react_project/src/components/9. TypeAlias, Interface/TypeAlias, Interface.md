@@ -105,6 +105,10 @@ const Frankenstein: MyBook = {
 
 - 인터페이스명만 조회된다.
 
+### 🤔 그렇다면 뭘 쓰는게 좋을까?
+
+    간단하게 사용하기에는 Type Alias도 나쁘지 않아보인다. 실제로 Interface에서 사용하려면 Type Alias보다 번거워지는 기능들도 있다. 하지만 확장을 해줄 때 새로운 선언이 필요 없고, 정적 타입 검사를 진행한다는 점에서 TS를 쓰는 목적에 더 부합한 것 같아 주로 interface를 사용하게 될 것 같다. (실제로 TypeScript 공식 문서에서도 Interface의 사용을 권장하고 있다고 한다!)
+
 #### 🔎 References
 
 [React+TypeScript Cheatsheets - types or interfaces](https://github.com/typescript-cheatsheets/react#types-or-interfaces) <br/>
