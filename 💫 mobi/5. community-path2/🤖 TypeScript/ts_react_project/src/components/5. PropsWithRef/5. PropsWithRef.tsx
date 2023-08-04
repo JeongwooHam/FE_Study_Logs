@@ -26,11 +26,20 @@ export function InputBox1() {
   );
 }
 
-const MyInput2: FC<PropsWithRef<InputProps>> = ({ value }, ref) => {
-  return <input type="text" ref={ref} value={value} />;
+type InputProps2 = {
+  value: string;
+  placeholder: string;
 };
 
-export default function InputBox2() {
+const MyInput2: FC<
+  React.PropsWithoutRef<InputProps2> & { ref: React.Ref<HTMLInputElement> }
+> = ({ value, placeholder }, ref) => {
+  return (
+    <input type="text" ref={ref} value={value} placeholder={placeholder} />
+  );
+};
+
+export const InputBox2: React.FC<InputProps2> = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleFocus() {
@@ -41,8 +50,12 @@ export default function InputBox2() {
 
   return (
     <>
-      <MyInput2 ref={inputRef} value="write here" />
+      <MyInput2
+        ref={inputRef}
+        value="write here"
+        placeholder="여기에 입력하세요"
+      />
       <button onClick={handleFocus}>제출하기</button>
     </>
   );
-}
+};

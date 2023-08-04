@@ -25,9 +25,9 @@ interface RefObject<T> {
 
 #### 🔎 References
 
-[Using React Refs in Typescript](https://www.pluralsight.com/guides/using-react-refs-typescript) <br/>
+[TypeScript React에서 useRef의 3가지 정의와 각각의 적절한 사용법](https://driip.me/7126d5d5-1937-44a8-98ed-f9065a7c35b5) <br/>
 [TypeScript/React: what does the RefObject<HTMLElement> datatype refer to?](https://stackoverflow.com/questions/71174649/typescript-react-what-does-the-refobjecthtmlelement-datatype-refer-to) <br/>
-[Ref as prop in Typescript in react](https://stackoverflow.com/questions/70992807/ref-as-prop-in-typescript-in-react)
+[How to use refs in React with Typescript](https://stackoverflow.com/questions/33796267/how-to-use-refs-in-react-with-typescript)
 
 #### 🤖 Code References
 
