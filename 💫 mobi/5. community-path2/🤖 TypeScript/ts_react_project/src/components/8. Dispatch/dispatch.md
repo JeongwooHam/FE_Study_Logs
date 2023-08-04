@@ -31,12 +31,12 @@ type Dispatch<A> = (value: A) => void;
 
 - SetStateAction을 다루면서 useState와 Dispatch를 사용하는 방법을 알아보았으므로, 이번에는 useReducer에 어떻게 적용할 수 있을지 알아보고자 한다.
 
-1. [reducer 생성하기]()
+1. [reducer 생성하기](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%A4%96%20TypeScript/ts_react_project/src/components/8.%20Dispatch/StateContext.tsx)
 
 - 복잡한 상태 관리 로직을 관리할 때 사용되는 useReducer 훅 함수에서, reducer 함수는 새로운 state와 action을 입력으로 받아 새로운 state를 반환한다.
 - Dispatch는 이 reducer 함수에 action을 전달하고, state를 업데이트하는 중간 전달체 역할을 한다.
 
-2. [Dispatch 사용하기]()
+2. [Dispatch 사용하기](https://github.com/JeongwooHam/FE_Study_Logs/blob/master/%F0%9F%92%AB%20mobi/5.%20community-path2/%F0%9F%A4%96%20TypeScript/ts_react_project/src/components/8.%20Dispatch/8.%20Dispatch.tsx)
 
 - Dispatch 함수는 action의 타입과 전달할 데이터를 받고, reducer 함수를 호출하여 새로운 상태로 업데이트 시켜준다.
 - <code>createContext</code>를 할 때에 Dispatch 및 사용할 action의 타입을 정의해주는 부분을 제외하면 이전에 JS에서 사용하던 dispatch와 사용법은 거의 동일하다고 느꼈다.
