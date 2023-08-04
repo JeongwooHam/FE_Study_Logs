@@ -1,9 +1,24 @@
 # 🌟 SetStateAction
 
+## 🦴 SetStateAction 구조 파악하기
+
 ```ts
 // Unlike the class component setState, the updates are not allowed to be partial
 type SetStateAction<S> = S | ((prevState: S) => S);
 ```
+
+> S
+
+- S 자체가 직접적인 업데이트를 나타내는 값이 될 수 있다.
+- <code>setState(value)</code> 처럼 값이 직접 변경되는 경우를 의미한다.
+
+> ((prevState: S) => S)
+
+- 상태를 업데이트하는 함수를 의미한다.
+- 이전 상태인 **prevState** 를 인자로 받아 새로운 상태 **S**를 반환한다.
+- <code>setState((prev) => !prev)</code> 와 같은 경우 사용된다.
+
+## 🗝️ SetStateAction 사용하기
 
 #### 🔎 References
 

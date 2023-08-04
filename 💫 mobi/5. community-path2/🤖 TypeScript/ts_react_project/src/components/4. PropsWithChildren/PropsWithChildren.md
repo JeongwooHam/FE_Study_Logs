@@ -1,6 +1,6 @@
 # 🌟 PropsWithChildren
 
-## 🦴 ReactElement 구조 파악하기
+## 🦴 PropsWithChildren 구조 파악하기
 
 ```ts
 type PropsWithChildren<P> = P & { children?: ReactNode };
@@ -9,7 +9,7 @@ type PropsWithChildren<P> = P & { children?: ReactNode };
 1. generic 타입 매개변수 **P**를 받아온다
 2. 해당 타입에 ReactNode 타입의 children 속성을 추가해준다.
 
-## 🗝️ ReactElement 사용하기
+## 🗝️ PropsWithChildren 사용하기
 
 - 문자 그대로 children을 포함한 props를 가리키는 타입이다.
 - 직접 children의 타입으로 명시해주어야했던 ReactNode와는 다르게 children의 타입을 설정해줄 필요가 없다.

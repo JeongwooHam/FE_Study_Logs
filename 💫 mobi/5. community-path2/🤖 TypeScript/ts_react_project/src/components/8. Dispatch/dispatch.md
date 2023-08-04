@@ -1,13 +1,21 @@
 # 🌟 Dispatch
 
+## 🦴 Dispatch 구조 파악하기
+
 ```ts
 // this technically does accept a second argument, but it's already under a deprecation warning
 // and it's not even released so probably better to not define it.
-type Dispatch<A> = (value: A) => void;
-// Since action _can_ be undefined, dispatch may be called without any parameters.
-type DispatchWithoutAction = () => void;
 // Unlike redux, the actions _can_ be anything
+type Dispatch<A> = (value: A) => void;
 ```
+
+> <code>type Dispatch<A> = (value: A) => void;</code>
+
+- generic **A** 타입의 값을 매개변수로 받아 액션을 디스패치한다.
+- Redux에서는 액션이 보통 plain object (객체 형태. 키 값으로 관리되며, 순서가 중요치 않은 데이터를 관리한다.)로 정의되어야 하지만, 이 dispatch 타입에서는 **A**로 정의된 액션은 어떤 형태든 가능하다.
+- 복잡한 액션 구조를 다루기에 유연할 수 있다.
+
+## 🗝️ Dispatch 사용하기
 
 #### 🔎 References
 
