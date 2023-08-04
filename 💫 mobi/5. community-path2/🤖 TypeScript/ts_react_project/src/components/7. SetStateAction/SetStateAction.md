@@ -23,6 +23,7 @@ type SetStateAction<S> = S | ((prevState: S) => S);
 #### 🔎 References
 
 [react typescript what type is setState?](https://stackoverflow.com/questions/64082847/react-typescript-what-type-is-setstate)
+[Passing useState as props in typescript](https://newbedev.com/passing-usestate-as-props-in-typescript)
 
 #### 🤖 Code References
 

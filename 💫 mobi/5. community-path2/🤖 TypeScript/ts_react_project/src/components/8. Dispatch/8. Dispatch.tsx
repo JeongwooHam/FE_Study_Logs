@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ActionTypes, usePostContext } from "./StateContext";
+import { ActionTypes, usePostContext } from "./StateContext.tsx";
 
 const UserPage: React.FC = () => {
   const [postState, dispatch] = usePostContext();
