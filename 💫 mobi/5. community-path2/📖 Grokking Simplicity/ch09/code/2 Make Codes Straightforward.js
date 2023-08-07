@@ -20,21 +20,21 @@ function isInCart(cart, name) {
   return cart.hasOwnProperty(name);
 }
 
-/// Complex implementations
+/// 🚨 아직 복잡한 코드!
 
 function calc_total(cart) {
-  var total = 0;
-  var names = Object.keys(cart);
-  for(var i = 0; i < names.length; i++) {
-    var item = cart[names[i]];
+  let total = 0;
+  let names = Object.keys(cart);
+  for (let i = 0; i < names.length; i++) {
+    let item = cart[names[i]];
     total += item.price;
   }
   return total;
 }
 
 function setPriceByName(cart, name, price) {
-  if(isInCart(cart, name)) {
-    var itemCopy = objectSet(cart[name], 'price', price);
+  if (isInCart(cart, name)) {
+    let itemCopy = objectSet(cart[name], "price", price);
     return objectSet(cart, name, itemCopy);
   } else {
     return objectSet(cart, name, make_item(name, price));
