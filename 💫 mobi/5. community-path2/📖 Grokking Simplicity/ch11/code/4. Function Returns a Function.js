@@ -114,6 +114,6 @@ function wrapLogging(f) {
   }
 }
 
-var saveUserDataWithLogging = wrapLogging(saveUserDataNoLogging);
-var saveUserDataWithLogging = wrapLogging(saveUserDataNoLogging);
-var fetchProductWithLogging = wrapLogging(fetchProductNoLogging);
+let saveUserDataWithLogging = wrapLogging(saveUserDataNoLogging);
+let saveUserDataWithLogging = wrapLogging(saveUserDataNoLogging);
+let fetchProductWithLogging = wrapLogging(fetchProductNoLogging);
