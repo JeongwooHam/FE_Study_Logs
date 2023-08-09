@@ -73,7 +73,7 @@ function drop_first(array) {
   });
 }
 
-// 카피-온-라이트 원칙을 따르고 재사용할 수 있는
+// 카피-온-라이트 원칙을 따르고 재사용할 수 있는 함수
 // 기본 연산 뿐만 아니라 배열을 바꾸는 어떠한 동작에서도 사용 가능
 //                            콜백
 function withArrayCopy(array, modify) {
