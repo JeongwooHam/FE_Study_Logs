@@ -1,5 +1,7 @@
+// import { TodoEnum } from "@types/todo";
+
 const OneTodo: React.FC = () => {
-  console.log(TodoEnum);
+  // console.log(TodoEnum);
   return <div>:)</div>;
 };
 export default OneTodo;

@@ -1,3 +1,4 @@
+// API 통신을 통해 받아온 데이터의 타입
 export enum TodoEnum {
   DAILY = "DAILY",
   WEEKLY = "WEEKLY",

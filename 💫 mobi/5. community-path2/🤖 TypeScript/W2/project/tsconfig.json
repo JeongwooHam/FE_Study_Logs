@@ -9,11 +9,7 @@
     // 절대경로 설정하기
     "baseUrl": ".", // 기본 경로: 프로젝트 최상단으로 설정
     "paths": {
-      "apis/*": ["src/apis/*"],
-      "assets/*": ["src/assets/*"],
-      "question/*": ["src/qustion/*"],
-      "components/*": ["src/question/components/*"],
-      "types/*": ["src/types/*"]
+      "@/*": ["src/*"]
     },
 
     /* Bundler mode */
