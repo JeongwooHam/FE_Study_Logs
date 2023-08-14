@@ -1,5 +1,6 @@
 // interface를 통해 타입 부여하기
 import { TodoDataBase } from "@/types/todo";
+// Q1. 데이터 통신을 통해 받아온 데이터의 타입 부여하기 _ interface
 import axios, { AxiosResponse } from "axios";
 
 /*
@@ -25,11 +26,13 @@ export interface AxiosResponse<T = any, D = any> {
 }
 */
 
+// status code 등 data를 제외한 부분은 원래 axios의 response와 동일하도록
+// AxiosResponse를 확장하여 data의 타입만 수정하였음
 interface Response extends AxiosResponse {
-  data: TodoDataBase;
+  data: TodoDataBase[];
 }
 
-export const TodoApi = {
+export const TodoApiWithInterface = {
   async getTodo() {
     const res: Response = await axios.get("/");
     return res.data;
