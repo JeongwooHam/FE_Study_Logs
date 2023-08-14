@@ -4,32 +4,19 @@
 
 import { TodoDataBase } from "@/types/todo";
 import CheckTodoType from "@/utils/checkType";
+import Daily from "./daily";
+import Weekly from "./weekly";
+import Monthly from "./monthly";
+
 interface props {
   todo: TodoDataBase;
 }
 
-const OneTodo: React.FC<props> = (props) => {
-  if (CheckTodoType.dailyTodo(props.todo))
-    return (
-      <div>
-        <div>DAILY TODO</div>
-        <div>제목: {props.todo.title}</div>
-        <div>내용: {props.todo.content}</div>
-      </div>
-    );
-  if (CheckTodoType.weeklyTodo(props.todo))
-    return (
-      <div>
-        <div>WEEKLY TODO</div>
-        <div>총 날짜: {props.todo.total + ""}</div>
-      </div>
-    );
-  if (CheckTodoType.monthlyTodo(props.todo))
-    return (
-      <div>
-        <div>MONTLY TODO</div>
-        <div>이번 달 목표: {props.todo.goal}</div>
-      </div>
-    );
+const OneTodo: React.FC<props> = ({ todo }) => {
+  if (CheckTodoType.dailyTodo(todo))
+    return <Daily title={todo.title} content={todo.content} />;
+  if (CheckTodoType.weeklyTodo(todo)) return <Weekly total={todo.total} />;
+  if (CheckTodoType.monthlyTodo(todo)) return <Monthly goal={todo.goal} />;
 };
+
 export default OneTodo;
