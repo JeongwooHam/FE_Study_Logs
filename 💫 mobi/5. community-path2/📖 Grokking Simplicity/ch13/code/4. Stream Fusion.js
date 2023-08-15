@@ -5,7 +5,7 @@ var nameLengths = map(names, stringLength);
 
 /// Equivalent as a single map() step
 
-var nameLengths = map(customers, function(customer) {
+var nameLengths = map(customers, function (customer) {
   return stringLength(getFullName(customer));
 });
 
@@ -16,7 +16,7 @@ var withAddresses = filter(goodCustomers, hasAddress);
 
 /// Equivalent as a single filter() step
 
-var withAddresses = filter(customers, function(customer) {
+var withAddresses = filter(customers, function (customer) {
   return isGoodCustomer(customer) && hasAddress(customer);
 });
 
@@ -27,6 +27,6 @@ var purchaseSum = reduce(purchaseTotals, 0, plus);
 
 /// Equivalent as a single reduce() step
 
-var purchaseSum = reduce(purchases, 0, function(total, purchase) {
+var purchaseSum = reduce(purchases, 0, function (total, purchase) {
   return total + getPurchaseTotal(purchase);
 });
