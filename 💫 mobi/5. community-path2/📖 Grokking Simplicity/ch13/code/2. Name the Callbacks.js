@@ -1,3 +1,4 @@
+// 단계에 이름을 붙이는 대신 콜백을 빼내기
 function biggestPurchasesBestCustomers(customers) {
   let bestCustomers = filter(customers, function (customer) {
     return customer.purchases.length >= 3;
@@ -13,6 +14,7 @@ function biggestPurchasesBestCustomers(customers) {
 /// extracted and named callbacks
 
 function biggestPurchasesBestCustomers(customers) {
+  //                                    콜백에 이름을 붙임
   let bestCustomers = filter(customers, isGoodCustomer);
   let biggestPurchases = map(bestCustomers, getBiggestPurchase);
   return biggestPurchases;
