@@ -1,4 +1,4 @@
-// Page 434 It's your turn
+// [설거지 수행 코드 리팩토링하기]
 
 var plates = ...;
 var forks = ...;
