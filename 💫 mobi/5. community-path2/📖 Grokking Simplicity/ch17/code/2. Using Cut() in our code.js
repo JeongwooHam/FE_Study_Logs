@@ -1,11 +1,12 @@
+// 코드에 Cut() 적용하기
 /// Before
 
 function calc_cart_total(cart, callback) {
   var total = 0;
-  cost_ajax(cart, function(cost) {
+  cost_ajax(cart, function (cost) {
     total += cost;
   });
-  shipping_ajax(cart, function(shipping) {
+  shipping_ajax(cart, function (shipping) {
     total += shipping;
     callback(total);
   });
@@ -15,14 +16,14 @@ function calc_cart_total(cart, callback) {
 
 function calc_cart_total(cart, callback) {
   var total = 0;
-  var done = Cut(2, function() {
+  var done = Cut(2, function () {
     callback(total);
   });
-  cost_ajax(cart, function(cost) {
+  cost_ajax(cart, function (cost) {
     total += cost;
     done();
   });
-  shipping_ajax(cart, function(shipping) {
+  shipping_ajax(cart, function (shipping) {
     total += shipping;
     done();
   });
