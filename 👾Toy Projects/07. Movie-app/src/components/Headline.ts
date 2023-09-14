@@ -1,8 +1,8 @@
-import { Component } from '../core/heropy'
+import { Component } from "../core/component";
 
 export default class Headline extends Component {
   render() {
-    this.el.classList.add('headline')
+    this.el.classList.add("headline");
     this.el.innerHTML = /* html */ `
       <h1>
         <span>OMDb API</span><br />
@@ -14,6 +14,6 @@ export default class Headline extends Component {
         all content and images on the site are contributed and maintained by our users.<br />
         If you find this service useful, please consider making a one-time donation or become a patron.
       </p>
-    `
+    `;
   }
 }
