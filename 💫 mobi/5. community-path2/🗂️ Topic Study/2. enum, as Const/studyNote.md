@@ -1,12 +1,242 @@
 ![image](https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/557aff62-95f4-437f-b4be-37b4310bfa82)
 
-## ⚙️ Enum
+## ⚙️ enum
+
+- 이름이 있는 상수들의 집합을 정의할 수 있게 해주는 기능
+- 의도를 문서화하거나 구분되는 사례 집합을 만들기에 용이하다.
+
+### 🔢 숫자 열거형
+
+```ts
+enum Direction {
+  North = 1,
+  South,
+  East,
+  West,
+}
+```
+
+- 위처럼 특정한 숫자로 초기화할 경우, 그 지점부터 뒤따르는 요소들은 자동으로 증가되는 값을 갖게 된다.
+  - South는 2, East는 3, West는 4
+- 전부 초기화하지 않을 경우, 자동으로 0부터 시작하는 값이 된다.
+- 이러한 자동 증가 기능은 다른 값과 구별되어야 할 경우 유용하게 사용될 수 있다.
+
+```ts
+enum Direction {
+  Up = 5,
+}
+```
+
+- 같은 이름을 사용한 선언적 방식의 확장이 가능하다.
+
+```ts
+console.log(Direction.North);
+console.log(NumericEnums2["0"]); // reverse mapping
+```
+
+- <code>Direction.North</code>처럼 프로퍼티로 모든 멤버에게 접근 가능하다.
+- **reverse mapping**: 숫자 열거형의 경우 값으로도 접근이 가능하다.
+  - 다만 <code>Object.keys(Direction)</code> 사용 시 숫자까지 key 값에 담기므로 원치 않는 결과가 나올수도 있다.
+
+### 🔠 문자열 열거형
+
+- 숫자 열거형과 달리 모든 멤버들에 대한 상수 초기화가 필요하다.
+- 숫자 열거형처럼 자동증가하는 기능은 없지만 직렬화할 수 있다는 장점이 있다.
+  - 숫자만으로는 어떤 의미인지 파악하기 어렵지만 문자열로 디버깅 시 유의미하고 읽기 좋은 값을 사용할 수 있다.
+
+```ts
+enum Direction {
+  North = "NORTH",
+  South = "SOUTH",
+  East = "EAST",
+  West = "WEST,
+}
+```
 
 ## ⚒️ as const
 
-## 🍃 Tree Shaking
+### 🤖 let, const 선언의 타입 추론
 
-### 🤔 그렇다면 enum은 사용하지 말아야 할까?
+> 타입 추론
+
+- 정적 타입 언어에서, 변수에 대입된 리터럴의 타입을 통해 해당 변수의 타입을 자동으로 지정해주는 기능
+- TS에서는 특정 문자열 자체를 타입으로 다룰 수 있게 하는 string 리터럴 타입을 지원한다.
+  - const로 지정된 문자열은 반드시 해당 문자열이어야하고, 다른 문자열이 될 수 없다.
+
+```tsx
+let LET = "let"; // string 타입으로 추론됨
+
+const CONST = "const"; // "const" 타입으로 추론됨
+```
+
+### 🌟 Const Assertion
+
+- const assertion 기능을 사용해 let 변수에 대해서도 const 변수 사용 시와 동일한 타입 추론 규칙을 적용할 수 있다.
+- let 변수로 선언하더라도 선언된 문자열 이외의 다른 값을 대입하려고 할 경우 컴파일 에러가 발생한다.
+
+```tsx
+let LET = "let" as const; // "let" 타입으로 추론됨
+```
+
+**🤔 하지만 그냥 const를 쓰면 되는 것 아닌가..?**
+
+> 🔅 객체에 대한 Const Assertion
+
+사실 위의 예시는 단순히 let으로 선언된 변수를 const로 수정하기만 해도 된다.
+<br/>
+as const가 유용하게 사용되는 용례는 따로 있는데, 바로 특정 Object의 Value를 상수화할 때이다. <br/>
+JS의 Object(객체, 배열, ...)는 원래 가변적인 데이터 값을 저장하기 위해 탄생했기 때문에 <br/>
+Const로 객체를 선언하더라도 특정 Key 값에 오는 Value를 고정시킬 수 없었다. <br/>
+
+```tsx
+const object = {
+  first: "first",
+  two: "two",
+};
+```
+
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/70f2ce2b-d130-40bc-b146-499c9223e8cc" width="20%">
+
+**이를 해결하기 위해 사용할 수 있는 것이 as const!**
+
+1. 객체의 개별 키 값에 대해 설정해주기
+   ```ts
+   const object = {
+     first: "first" as const,
+     two: "two",
+   };
+   ```
+   - 설정하지 않은 키에 대한 value는 여전히 수정 가능한 상태 <br/>
+     <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/d2a35cbb-9376-4b81-afe2-aed3dbd2ba47" width="30%"/>
+2. 객체 전체를 상수화하기
+
+   ```ts
+   const object = {
+     first: "first",
+     two: "two",
+   } as const;
+   ```
+
+   - Read Only 타입이 됨 <br/>
+     <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/c946ade4-f98b-4820-baa9-e81feb4aff15" width="30%"/>
+
+## enum 🤼 as const
+
+|                      특징                      | enum | as const |
+| :--------------------------------------------: | :--: | :------: |
+|     key에 의미있는 값을 부여할 수 있는가?      |  ⭕  |    ⭕    |
+| type 지정을 하지 않아도 바로 사용할 수 있는가? |  ⭕  |    ❌    |
+|            오타를 방지할 수 있는가?            |  ⭕  |    ❌    |
+|          key, value 순회에 용이한가?           |  ⭕  |    ⭕    |
+|            양방향 매핑이 가능한가?             |  ⭕  |    ❌    |
+|           Tree Shaking이 잘 되는가?            |  ❌  |    ⭕    |
+|               JS로 변환 시 용량                | 많음 |   적음   |
+
+### 🚨 enum에서의 Tree Shaking
+
+> 🍃 Tree Shaking
+
+- 사용하지 않는 코드를 삭제하는 기능
+- export 했지만 import 되지 않은 모듈이나 사용하지 않는 코드를 삭제하여 번들 크기를 줄임으로써 페이지가 표시되는 시간을 단축할 수 있게 한다.
+
+> JS 변환 시 enum
+
+```ts
+enum Direction {
+  North = "NORTH",
+  South = "SOUTH",
+  East = "EAST",
+  West = "WEST,
+}
+```
+
+- JS에는 위의 문자열 열거형과 같은 기능이 없기 때문에, 문자열 열거형을 JS로 변환할 경우 다음과 같이 IIFE(즉시 실행 함수)를 사용하게 된다.
+
+```js
+"use strict";
+var Direction;
+(function (Direction) {
+  Direction["NORTH"] = "North";
+  Direction["SOUTH"] = "South";
+  Direction["EAST"] = "East";
+  Direction["WEST"] = "West";
+})(Direction || (Direction = {}));
+```
+
+- 번들러에게 IIFE는 언제 쓰일지 모르는 코드이므로, 바로 Tree Shaking을 수행하지 않게 된다.
+- 물론 enum의 선언부 자체가 엄청 크지 않다면, 프로젝트의 번들링 크기에 엄청난 영향을 미치지는 않을 수 있지만 고려할 문제이다.
+- 만약 Direction을 import하고 실제로는 활용하지 않더라도 번들러 입장에서 '사용하지 않는 코드'라는 판단이 불가하여 최종 번들에는 포함된다.
+
+> const enum
+
+- 순수 enum 보다 간결하게 변환되며, Tree Shaking도 더 잘 적용된다.
+
+```ts
+const enum Direction {
+  North = "NORTH",
+  South = "SOUTH",
+  East = "EAST",
+  West = "WEST",
+}
+
+const South = Direction.South;
+
+// 변환 후
+const South = "SOUTH";
+```
+
+- 하지만 const enum이 정의된 부분과 사용하는 코드가 각각 다른 모듈에 있다면 const enum의 값을 읽어오기 위해 정의된 부분의 모듈도 실행해야 한다.
+- babel에서 const enum을 사용하기 위해서는 [추가 플러그인](https://github.com/dosentmatter/babel-plugin-const-enum)을 설치해야 한다.
+
+> 해결책
+
+**_as const를 쓰자_**
+
+- as const를 통해 강한 타입 단언을 해줌으로써 TS에서 타입 추론의 범위를 줄여준다.
+
+```ts
+const Direction = {
+  North = "NORTH",
+  South = "SOUTH",
+  East = "EAST",
+  West = "WEST",
+} as const;
+
+type Direction = (typeof Direction)[keyof typeof Direction];
+for (const d of Object.values(Direction)) {
+  console.log(d);
+}
+```
+
+- as const가 없었다면 object의 value 값이 string 타입으로 추론된다. <br/>
+  <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/f067cb5a-4ab5-42a2-8ff5-869cab7c9dee" width="40%"/>
+
+- 하지만 as const 사용 시 각각의 명시된 문자열 자체로 타입이 지정된다.
+  <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/e949d3ed-7d80-4ae4-8c64-c471e7e664a4" width="50%"/>
+
+- JS로 변환 시 enum과 달리 사라진다!
+- 이처럼 union type과 as const를 사용하면 Tree Shaking 문제가 해결된다.
+
+### 🤔 그렇다면 enum은 절대 사용하지 말아야 할까?
+
+> enum
+
+- 서로 연관된 상수들을 하나의 네임스페이스를 묶어 **추상화**하기 위해 도입되었다.
+- 코드를 통해 의도를 명확히 파악할 수 있고, 가독성을 높일 수 있다.
+- 별도의 타입을 번거롭게 만들고 싶지 않고, 명시적으로 추상화된 상수 목록을 사용하고 싶을 때 사용할 수 있다.
+- 선언된 값만 사용할 수 있도록 하여 자동완성을 통해 오타를 방지하고 싶을 때 사용할 수 있다.
+
+> as const
+
+- 타입 단언의 한 종류로서, 리터럴 타입의 **추론 범위를 줄이고 값의 재할당을 막기** 위한 목적으로 도입되었다.
+- 원시/참조 타입 값의 재할당을 막아 의도치 않은 변경으로 인한 오류를 방지할 수 있다.
+- 리터럴 타입의 추론 범위가 한정되어 안전한 개발이 가능하다.
+- 예상치 못한 범위 확장 등으로 인한 오류를 방지하고 타입의 안정성을 확보하고 싶을 때 사용할 수 있다.
+- JS로의 변환 시 Tree Shaking을 통해 번들링 크기를 줄이기 위해 사용할 수 있다.
+
+```
+👩‍🏫 각각의 장단점을 명확히 이해하고, 필요한 상황에 맞춰 적절히 사용합시다!
+```
 
 #### 🔎 References
 
