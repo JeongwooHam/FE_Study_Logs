@@ -1,10 +1,12 @@
+// [셀이 바뀔 때 배송 아이콘 갱신하기]
+
 /// Before
 
 var shopping_cart = ValueCell({});
 
 function add_item_to_cart(name, price) {
   var item = make_cart_item(name, price);
-  shopping_cart.update(function(cart) {
+  shopping_cart.update(function (cart) {
     return add_item(cart, item);
   });
   var total = calc_total(shopping_cart.val());
@@ -19,7 +21,7 @@ var shopping_cart = ValueCell({});
 
 function add_item_to_cart(name, price) {
   var item = make_cart_item(name, price);
-  shopping_cart.update(function(cart) {
+  shopping_cart.update(function (cart) {
     return add_item(cart, item);
   });
   var total = calc_total(shopping_cart.val());

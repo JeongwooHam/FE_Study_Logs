@@ -1,3 +1,5 @@
+// 👩‍🏫 반응형 아키텍처가 시스템을 어떻게 바꿨을까요?
+
 /// Typical architecture
 
 var shopping_cart = {};
@@ -18,7 +20,7 @@ var cart_total = FormulaCell(shopping_cart, calc_total);
 
 function add_item_to_cart(name, price) {
   var item = make_cart_item(name, price);
-  shopping_cart.update(function(cart) {
+  shopping_cart.update(function (cart) {
     return add_item(cart, item);
   });
 }

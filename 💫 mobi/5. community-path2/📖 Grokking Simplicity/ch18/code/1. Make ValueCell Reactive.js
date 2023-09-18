@@ -1,40 +1,43 @@
-/// Original
+// [ValueCell을 반응형으로 만들기]
 
+/// Original
 function ValueCell(initialValue) {
   var currentValue = initialValue;
   return {
-    val: function() {
+    val: function () {
       return currentValue;
     },
-    update: function(f) {
+    update: function (f) {
       var oldValue = currentValue;
       var newValue = f(oldValue);
       currentValue = newValue;
-    }
+    },
   };
 }
 
 /// With watchers
-
 function ValueCell(initialValue) {
   var currentValue = initialValue;
+  // 감시자 목록 저장
   var watchers = [];
   return {
-    val: function() {
+    val: function () {
       return currentValue;
     },
-    update: function(f) {
+    update: function (f) {
       var oldValue = currentValue;
       var newValue = f(oldValue);
-      if(oldValue !== newValue) {
+      // 값이 바뀔 때 모든 감시자 실행
+      if (oldValue !== newValue) {
         currentValue = newValue;
-        forEach(watchers, function(watcher) {
+        forEach(watchers, function (watcher) {
           watcher(newValue);
         });
       }
     },
-    addWatcher: function(f) {
+    // 새로운 감시자 추가
+    addWatcher: function (f) {
       watchers.push(f);
-    }
+    },
   };
 }

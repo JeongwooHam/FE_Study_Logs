@@ -1,13 +1,15 @@
+// [FormulaCell은 파생된 값을 계산한다.]
+
 function FormulaCell(upstreamCell, f) {
   var myCell = ValueCell(f(upstreamCell.val()));
-  upstreamCell.addWatcher(function(newUpstreamValue) {
-    myCell.update(function(currentValue) {
+  upstreamCell.addWatcher(function (newUpstreamValue) {
+    myCell.update(function (currentValue) {
       return f(newUpstreamValue);
     });
   });
   return {
     val: myCell.val,
-    addWatcher: myCell.addWatcher
+    addWatcher: myCell.addWatcher,
   };
 }
 
@@ -17,7 +19,7 @@ var shopping_cart = ValueCell({});
 
 function add_item_to_cart(name, price) {
   var item = make_cart_item(name, price);
-  shopping_cart.update(function(cart) {
+  shopping_cart.update(function (cart) {
     return add_item(cart, item);
   });
   var total = calc_total(shopping_cart.val());
@@ -35,7 +37,7 @@ var cart_total = FormulaCell(shopping_cart, calc_total);
 
 function add_item_to_cart(name, price) {
   var item = make_cart_item(name, price);
-  shopping_cart.update(function(cart) {
+  shopping_cart.update(function (cart) {
     return add_item(cart, item);
   });
 }
