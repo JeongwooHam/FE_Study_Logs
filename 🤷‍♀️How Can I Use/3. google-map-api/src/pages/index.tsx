@@ -1,16 +1,18 @@
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import Map from "./map";
+import { Wrapper } from "@googlemaps/react-wrapper";
+import Map from "../components/map";
 import React from "react";
+import Marker from "../components/marker";
+import SearchBar from "../components/search-bar";
 
 const Main: React.FC = () => {
   const apiKey = process.env.REACT_APP_KEY;
-  const handleRender = (location: Status) => <h1>{location}</h1>;
-
   if (apiKey)
     return (
-      <div className="App">
-        <Wrapper apiKey={apiKey} render={handleRender}>
-          <Map />
+      <div style={{ textAlign: "center" }}>
+        <Wrapper apiKey={apiKey}>
+          <h1>My Map :)</h1>
+          <Map></Map>
+          <SearchBar />
         </Wrapper>
       </div>
     );

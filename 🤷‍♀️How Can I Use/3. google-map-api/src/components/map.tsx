@@ -1,9 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 
+// interface MapProps extends google.maps.MapOptions {
+//   style: { [key: string]: string };
+//   onClick?: (e: google.maps.MapMouseEvent) => void;
+// }
+
 const Map: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
-  const style = { width: "400px", height: "400px", margin: "0 auto" };
+  const style = {
+    width: "80%",
+    height: "550px",
+    margin: "10px auto",
+    border: "3px solid lightgray",
+  };
 
   useEffect(() => {
     if (mapRef.current && !map) {
