@@ -15,7 +15,7 @@ function ValueCell(initialValue) {
   };
 }
 
-/// With watchers
+/// With watchers > 셀을 감시하는 기능이 생김
 function ValueCell(initialValue) {
   var currentValue = initialValue;
   // 감시자 목록 저장
