@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-// interface MapProps extends google.maps.MapOptions {
-//   style: { [key: string]: string };
-//   onClick?: (e: google.maps.MapMouseEvent) => void;
-// }
+interface MapProps extends google.maps.MapOptions {
+  children?: React.ReactNode;
+  onClick?: (e: google.maps.MapMouseEvent) => void;
+}
 
-const Map: React.FC = () => {
+const Map: React.FC<MapProps> = ({ onClick, children, ...options }) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
   const style = {
@@ -19,11 +19,13 @@ const Map: React.FC = () => {
     if (mapRef.current && !map) {
       const newMap = new window.google.maps.Map(mapRef.current, {
         center: { lat: 37.569227, lng: 126.9777256 },
-        zoom: 16,
+        zoom: 11,
       });
       setMap(newMap);
     }
   }, [mapRef, map]);
+
+  // useDeepCompareEffect
 
   return <div ref={mapRef} id="map" style={style} />;
 };
