@@ -3,6 +3,7 @@ import Map from "../components/map";
 import React, { useState } from "react";
 import Marker from "../components/marker";
 import SearchBar from "../components/search-bar";
+import { getLocation } from "../apis/reverseGeocode";
 
 const Main: React.FC = () => {
   const apiKey = process.env.REACT_APP_KEY;
@@ -16,6 +17,9 @@ const Main: React.FC = () => {
   const onClick = (e: google.maps.MapMouseEvent) => {
     setClicks([...clicks, e.latLng!]);
   };
+
+  const editedVal = clicks.map((latLng, i) => latLng.toJSON());
+  console.log("click", editedVal);
 
   if (apiKey)
     return (
