@@ -27,7 +27,7 @@ const Main: React.FC = () => {
               <Marker key={i} position={location} />
             ))}
           </Map>
-          <SearchBar />
+          <SearchBar setCenter={setCenter} />
         </Wrapper>
       </div>
     );
