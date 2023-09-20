@@ -1,18 +1,6 @@
 import React, { FormEvent, useRef } from "react";
 import { getLatLng } from "../apis/geocode";
 
-interface responseType {
-  result: country[];
-}
-
-interface country {
-  address: string;
-  country: string;
-  location: { lat: number; lng: number };
-  location_type: string;
-  region: string;
-  type: string;
-}
 interface Props {
   setCenter: React.Dispatch<React.SetStateAction<google.maps.LatLngLiteral>>;
 }
@@ -25,8 +13,10 @@ const SearchBar: React.FC<Props> = ({ setCenter }) => {
 
     const submitVal = locationInputRef.current!.value;
     console.log("입력값", submitVal);
-    const latLng: responseType = getLatLng(submitVal);
-    setCenter(latLng.result[0].location);
+    getLatLng(submitVal).then((res) => {
+      console.log("res", res.results);
+      if (res.results) setCenter(res.results[0].location);
+    });
     if (locationInputRef.current) {
       locationInputRef.current.value = "";
     }
