@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const getLocation = async (lat: number, lng: number) => {
   const options = {
     method: "GET",
@@ -15,6 +14,7 @@ export const getLocation = async (lat: number, lng: number) => {
   };
 
   const { data } = await axios.request(options);
-  // console.log("res", data.results);
+  const target = data.results[0];
+  if (target) console.log("지역", target.region, target.country);
   return data;
 };

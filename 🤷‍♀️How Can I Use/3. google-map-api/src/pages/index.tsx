@@ -1,6 +1,6 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 import Map from "../components/map";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Marker from "../components/marker";
 import SearchBar from "../components/search-bar";
 import { getLocation } from "../apis/reverseGeocode";
