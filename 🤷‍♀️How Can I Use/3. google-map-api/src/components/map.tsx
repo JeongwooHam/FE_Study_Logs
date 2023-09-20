@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import useDeepCompareEffect from "use-deep-compare-effect";
 
 interface MapProps extends google.maps.MapOptions {
   children?: React.ReactNode;
@@ -17,17 +18,36 @@ const Map: React.FC<MapProps> = ({ onClick, children, ...options }) => {
 
   useEffect(() => {
     if (mapRef.current && !map) {
-      const newMap = new window.google.maps.Map(mapRef.current, {
-        center: { lat: 37.569227, lng: 126.9777256 },
-        zoom: 11,
-      });
+      const newMap = new window.google.maps.Map(mapRef.current, {});
       setMap(newMap);
     }
   }, [mapRef, map]);
 
-  // useDeepCompareEffect
+  // MapProps의 옵션들에 변화가 생길 때 map에 덥데이트를 적용하기 위해 사용된다.
+  useDeepCompareEffect(() => {
+    if (map) map.setOptions(options);
+  }, [map, options]);
 
-  return <div ref={mapRef} id="map" style={style} />;
+  useEffect(() => {
+    if (map) {
+      google.maps.event.clearListeners(map, "click");
+
+      if (onClick) {
+        map.addListener("click", onClick);
+      }
+    }
+  }, [map, onClick]);
+
+  return (
+    <>
+      <div ref={mapRef} id="map" style={style} />
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child))
+          // @ts-ignore
+          return React.cloneElement(child, { map });
+      })}
+    </>
+  );
 };
 
 export default Map;

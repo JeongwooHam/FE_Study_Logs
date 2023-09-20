@@ -7,10 +7,10 @@ import SearchBar from "../components/search-bar";
 const Main: React.FC = () => {
   const apiKey = process.env.REACT_APP_KEY;
   const [clicks, setClicks] = useState<google.maps.LatLng[]>([]);
-  const [zoom, setZoom] = useState(3);
+  const [zoom, setZoom] = useState(11);
   const [center, setCenter] = useState<google.maps.LatLngLiteral>({
-    lat: 0,
-    lng: 0,
+    lat: 37.569227,
+    lng: 126.9777256,
   });
 
   const onClick = (e: google.maps.MapMouseEvent) => {
