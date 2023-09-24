@@ -1,10 +1,9 @@
-```
-next.js에서 이미지 사용 최적화를 지원하는 방법
-```
+<p align="center"><img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/74780a44-b979-48cc-8b8c-529aa170bffe" width="60%"/></p>
 
 #### 🔎 References
 
 - [Next.js 공식문서\_Image](https://nextjs.org/docs/pages/api-reference/components/image)
+- [Image Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/images)
 - [Next JS 13: New Image, Link and Font ](https://www.youtube.com/watch?v=lQsB0nZ8Bdo)
 - [Next.js Image 컴포넌트 완벽 가이드](https://mycodings.fly.dev/blog/2022-09-08-all-about-nextjs-image-component)
 - [NEXT.JS의 이미지 최적화는 어떻게 동작하는가?](https://oliveyoung.tech/blog/2023-06-09/nextjs-image-optimization/)
