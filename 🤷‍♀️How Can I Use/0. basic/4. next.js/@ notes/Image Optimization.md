@@ -69,7 +69,7 @@
     - 원격 서버에 저장된 이미지에 대해서도 필요한 크기로 사이즈 조정이 가능하다.
 ```
 
-## ⚒️ [next/image 사용법](https://github.com/vercel/next.js/tree/canary/examples/image-component)
+## ⚒️ next/image 사용법
 
 - 이미지를 추가하기 위해, <code>next/image</code> 컴포넌트를 import 한다.
 
