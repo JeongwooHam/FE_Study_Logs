@@ -16,6 +16,8 @@ const Map: React.FC<MapProps> = ({ onClick, children, ...options }) => {
     border: "3px solid lightgray",
   };
 
+  // const localityLayer = map?.getFeatureLayer("LOCALITY")
+
   useEffect(() => {
     if (mapRef.current && !map) {
       const newMap = new window.google.maps.Map(mapRef.current, {});
