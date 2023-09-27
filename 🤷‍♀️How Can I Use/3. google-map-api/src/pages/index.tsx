@@ -3,6 +3,7 @@ import Map from "../components/map";
 import React, { useState } from "react";
 import Marker from "../components/marker";
 import SearchBar from "../components/search-bar";
+import { mapStyles } from "../consts/mapstyles";
 
 const Main: React.FC = () => {
   const apiKey = process.env.REACT_APP_KEY;
@@ -25,7 +26,13 @@ const Main: React.FC = () => {
       <div style={{ textAlign: "center" }}>
         <Wrapper apiKey={apiKey}>
           <h1>My Map :)</h1>
-          <Map center={center} onClick={onClick} zoom={zoom}>
+          <Map
+            center={center}
+            onClick={onClick}
+            zoom={zoom}
+            styles={mapStyles}
+            mapId={process.env.REACT_APP_MAPID}
+          >
             {clicks.map((location, i) => (
               <Marker key={i} position={location} />
             ))}
