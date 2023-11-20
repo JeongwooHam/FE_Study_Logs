@@ -1,6 +1,6 @@
 <h1> 📖 쏙쏙 들어오는 함수형 코딩 (2022) </h1>
 
-<img src="https://image.yes24.com/goods/108748841/XL" height="500px"/>
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/b771652a-8956-48cc-88e0-79b031e1ac34" height="500px"/>
 
 | Chapter | 정리 |
 | :-----: | :--: |
