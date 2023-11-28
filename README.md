@@ -1,6 +1,6 @@
 # FE_STUDY_LOGS
 
-### 👩‍🏫 Encyclopedia
+### 👩‍🏫 [Encyclopedia](https://github.com/JeongwooHam/FE_Study_Logs/tree/master/%F0%9F%91%A9%E2%80%8D%F0%9F%8F%AB%20Encyclopedia)
 
 프로그래밍 관련 개념과 면접 예상 질문에 대한 답변을 정리하는 폴더입니다.
 
