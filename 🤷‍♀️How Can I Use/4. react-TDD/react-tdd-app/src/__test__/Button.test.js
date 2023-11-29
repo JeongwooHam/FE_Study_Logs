@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import Button from '../components/Button/Button'
 
 // 렌더링되는 텍스트 부분
@@ -15,6 +15,11 @@ test('plus button', () => {
 	const plusBtnElement = screen.getByTestId('plusBtn')
 	// expect(counterElement).toBe(0) > 이때는 컴포넌트 전체가 들어와서 Failed
 	expect(plusBtnElement).toHaveTextContent('+')
+
+	// 클릭 이벤트 테스트
+	fireEvent.click(plusBtnElement)
+	const counterElement = screen.getByTestId('counter')
+	expect(counterElement).toHaveTextContent(1)
 })
 
 // 빼기 버튼
@@ -23,4 +28,9 @@ test('minus button', () => {
 	const minusBtnElement = screen.getByTestId('minusBtn')
 	// expect(counterElement).toBe(0) > 이때는 컴포넌트 전체가 들어와서 Failed
 	expect(minusBtnElement).toHaveTextContent('-')
+
+	// 클릭 이벤트 테스트
+	fireEvent.click(minusBtnElement)
+	const counterElement = screen.getByTestId('counter')
+	expect(counterElement).toHaveTextContent(-1)
 })
