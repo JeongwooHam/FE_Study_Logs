@@ -12,7 +12,7 @@ const OneNav: React.FC<{ mobile?: boolean }> = ({ mobile }) => {
         <Link href='/admin'>Admin</Link>
       </li>
       <li className='py-2 text-center cursor-pointer hover:border-b-4'>
-        <Link href='/admin'>MyPage</Link>
+        <Link href='/my_page'>MyPage</Link>
       </li>
       <li className='py-2 text-center cursor-pointer hover:border-b-4'>
         <button>로그아웃</button>
