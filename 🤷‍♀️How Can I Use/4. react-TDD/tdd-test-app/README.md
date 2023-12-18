@@ -6,8 +6,9 @@
 | :--------------------------------------------------------------------------------------------------------------------- | :--------------- |
 | <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">         |                  |
 | <img src="https://img.shields.io/badge/nextjs-000000?style=for-the-badge&logo=nextjs&logoColor=white">                 |                  |
-| <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">                     | CSS-in-CSS       |
-| <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">           | CSS toolkit      |
+| <img src="https://img.shields.io/badge/emotion-C43BAD?style=for-the-badge&logo=emotion&logoColor=white">               | CSS              |
+| <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">       | CSS              |
+| <img src="https://img.shields.io/badge/twin.macro-7071E8?style=for-the-badge&logo=twin.macro&logoColor=white">         | CSS              |
 | <img src="https://img.shields.io/badge/jotai-black?style=for-the-badge&logo=jotai&logoColor=white">                    | state management |
 | <img src="https://img.shields.io/badge/testinglibrary-E33332?style=for-the-badge&logo=testinglibrary&logoColor=white"> | testing          |
 | <img src="https://img.shields.io/badge/jest-C21325?style=for-the-badge&logo=jest&logoColor=white">                     | testing          |

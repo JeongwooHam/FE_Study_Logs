@@ -56,9 +56,8 @@ npm install -D eslint-plugin-testing-library eslint-plugin-jest-dom
 
 | 스택                                                                                                                   | 사용             |
 | :--------------------------------------------------------------------------------------------------------------------- | :--------------- |
-| <img src="https://img.shields.io/badge/emotion-C43BAD?style=for-the-badge&logo=emotion&logoColor=white">               | CSS              |
-| <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">       | CSS              |
-| <img src="https://img.shields.io/badge/twin.macro-7071E8?style=for-the-badge&logo=twin.macro&logoColor=white">         | CSS              |
+| <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white">                     | CSS-in-CSS       |
+| <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">           | CSS toolkit      |
 | <img src="https://img.shields.io/badge/nextauth.js-17D5C7?style=for-the-badge&logo=nextauthjs&logoColor=white">        | authentication   |
 | <img src="https://img.shields.io/badge/recoil-3578E5?style=for-the-badge&logo=recoil&logoColor=white">                 | state management |
 | <img src="https://img.shields.io/badge/reacthookform-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white">   | validation       |
