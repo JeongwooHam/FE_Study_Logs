@@ -1,0 +1,52 @@
+.container {
+}
+
+.container .champions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto; /*블럭 요소 + 가로 사이즈 명시 되어 있을 때만 적용 가능*/
+  padding: 60px;
+  background-color: black;
+}
+
+.container .champions .champion {
+  width: 150px;
+  height: 154px;
+  margin: 10px;
+  box-sizing: border-box; /*border, padding 들어가도 요소 크기 변화 X*/
+  border: 3px solid white;
+  background-color: lightgray;
+  transform: skewX(-14deg);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s, background-color 0.6s;
+}
+
+.container .champions .champion:hover {
+  background-color: dodgerblue;
+  transform: skewX(-14deg) scale(1.3);
+  z-index: 1;
+}
+
+.container .champions .champion .image {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.container .champions .champion:nth-child(1) .image {
+  background-image: url("../images/RiotX_ChampionList_akshan_v2.jpg");
+}
+.container .champions .champion:nth-child(2) .image {
+  background-image: url("../images/RiotX_ChampionList_akali.jpg");
+}
+.container .champions .champion:nth-child(3) .image {
+  background-image: url("../images/RiotX_ChampionList_aatrox.jpg");
+}
+.container .champions .champion:nth-child(4) .image {
+  background-image: url("../images/RiotX_ChampionList_ahri.jpg");
+}
