@@ -1,6 +1,6 @@
 <h1> 📑 면접을 위한 CS 전공지식 노트 (2022) </h1>
 
-<img src="https://image.aladin.co.kr/product/29281/57/cover500/k382837902_1.jpg" height="500px"/>
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/97aa7a77-aadf-495c-b869-9e32713bd5e6" height="500px"/>
 
 | Chapter |               제목                | 정리 |
 | :-----: | :-------------------------------: | :--: |
