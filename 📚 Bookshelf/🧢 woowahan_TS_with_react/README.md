@@ -1,12 +1,14 @@
+<div align='middle'>
+
 <h1> 🧢 우아한 타입스크립트 with React (2023) </h1>
 
-<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/b0fa48c5-b1c2-453c-b22c-375ea8e3127d" height="500px"/>
+<img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/b0fa48c5-b1c2-453c-b22c-375ea8e3127d" height="400px"/>
 
 | Chapter | title                      | 정리 |
 | :-----: | :------------------------- | :--: |
 |    1    | 들어가며                   |  ☑️  |
 |    2    | 타입                       |  ☑️  |
-|    3    | 고급 타입                  |  ⬜  |
+|    3    | 고급 타입                  |  ☑️  |
 |    4    | 타입 확장하기, 좁히기      |  ⬜  |
 |    5    | 타입 활용하기              |  ⬜  |
 |    6    | 타입스크립트 컴파일        |  ⬜  |
@@ -17,3 +19,5 @@
 |   11    | CSS-in-JS                  |  ⬜  |
 |   12    | 타입스크립트 프로젝트 관리 |  ⬜  |
 |   13    | 타입스크립트와 객체 지향   |  ⬜  |
+
+</div>
