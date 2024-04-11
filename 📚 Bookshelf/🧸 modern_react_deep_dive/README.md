@@ -1,4 +1,5 @@
-<h1> 🦎 모던 리액트 Deep Dive (2023) </h1>
+<div align="middle">
+<h1> 🧸 모던 리액트 Deep Dive (2023) </h1>
 
 <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/80267207-3331-4195-b31e-77c936abd111" height="500px"/>
 
@@ -20,3 +21,5 @@
 |   13    | 웹페이지의 성능을 측정하는 다양한 방법             |  ⬜  |
 |   14    | 웹사이트 보안을 위한 리액트와 웹페이지 보안 이슈   |  ⬜  |
 |   15    | 마치며                                             |  ⬜  |
+
+</div>

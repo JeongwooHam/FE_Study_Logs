@@ -1,3 +1,4 @@
+<div align="middle">
 <h1> 📑 면접을 위한 CS 전공지식 노트 (2022) </h1>
 
 <img src="https://github.com/JeongwooHam/FE_Study_Logs/assets/123251211/97aa7a77-aadf-495c-b869-9e32713bd5e6" height="500px"/>
@@ -14,3 +15,5 @@
 #### 🔎 References
 
 [도서 코드 출처](https://github.com/wnghdcjfe/csnote)
+
+</div>
