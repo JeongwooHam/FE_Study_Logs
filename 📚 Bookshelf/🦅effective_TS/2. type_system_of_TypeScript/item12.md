@@ -23,8 +23,9 @@ const addNum = function (num1: number, num2: number): number {
 
 - 불필요한 코드의 반복을 줄인다. (반복되는 함수 시그니처 통합)
 - 라이브러리에서 공통 함수 시그니처를 타입으로 제공할 수 있다. (`MouseEventHandler`)
+- `typeof fn`을 사용해 다른 함수의 시그니처를 참조할 수 있다.
 
-> 코드 예시
+  > 코드 예시
 
 - `fetch` 실패 시 거절된 `Promise`를 반환하지 않는 문제점 해결
 - 오류를 더 쉽고 명시적으로 감지할 수 있다.
